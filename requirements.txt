@@ -1,0 +1,6 @@
+numpy==1.24.3
+opencv_python==4.9.0.80
+scipy==1.13.1
+tifffile==2023.7.10
+tqdm == 4.66.5
+tensorboard == 2.17.1
