@@ -1,3 +1,3 @@
-Please load demo data for RL-DFN from https://doi.org/10.5281/zenodo.13369680 and unzip the Demo_Data_for_RL_DFN.zip under this directory.
+Please load demo data for RL-DFN from https://doi.org/10.5281/zenodo.13370842 and unzip the Demo_Data_for_RL_DFN.zip under this directory.
 
 b.  Demo_Data_for_RL_DFN.zip If you want to run the demo case in our source code of RL-DFN model, please load this dataset and save it under ./Code_for_3D_IsoRecon/data.
