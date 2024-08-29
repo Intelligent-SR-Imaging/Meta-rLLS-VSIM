@@ -30,7 +30,7 @@ pip install -r ./requirements.txt
 
 If you want to run the cource codes constructed by MATLAB, please use the MATLAB(version > 2017b) with Image Processing Toolbox.
 
-If you want to run our demo code, we have provided demo data at https://doi.org/10.5281/zenodo.13370842. Please follow the discription
+If you want to run our demo code, we have provided demo data at https://doi.org/10.5281/zenodo.13486221. Please follow the discription
 
 <br><br>
 <h1 id="Pipeline">Pipeline of 3D Isotropic Reconstruction</h1>
