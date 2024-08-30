@@ -64,7 +64,7 @@ If you want to run the Demo Case in our source code of RL-DFN model, please load
 ```
 
 <br><br>
-<h1 id="Pipeline">Pipeline of 3D Isotropic Reconstruction</h1>
+<h1 id="Pipeline">🔰 Pipeline of 3D Isotropic Reconstruction</h1>
 
 The integrated pipeline of 3D isotropic reconstruction is developed to reconstruct a near-isotropic SR image stack from the corresponding reflective lattice light-sheet microscopy (rLLSM) acquisitions, which consists of four major steps: (1) Apply a two-step background removal algorithm and deskew the stack into the deskewed view to preserve the spatial continuity of the sample structure; (2) The deskewed stack is sent to the Meta-VSI-SR model for laterally isotropic SR reconstruction; (3) The stack after 2D isotropic SR reconstruction is split into dual views by rotation and registration; and (4) finally, the registered dual-view stacks are fused via the proposed RL-DFN. The schematic workflow of Meta-rLLSM-VSIM is shown below.
 
