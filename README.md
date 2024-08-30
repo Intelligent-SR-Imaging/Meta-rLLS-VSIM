@@ -9,8 +9,7 @@ In this paper, we present the meta learning-empowered reflective lattice light-s
 * [3D Isotropic Reconstruction via RL-DFN](#RL-DFN)
 <!-- TOC -->
 
-<br>
-<h1 id="Environment">Environment</h1>
+#Environment</h1>
 The cource codes were mainly constructed by Python and PyTorch under an environment of:
 
 ```text
@@ -37,19 +36,9 @@ If you want to run our demo code, we have provided demo data at https://doi.org/
 
 The integrated pipeline of 3D isotropic reconstruction is developed to reconstruct a near-isotropic SR image stack from the corresponding reflective lattice light-sheet microscopy (rLLSM) acquisitions, which consists of four major steps: (1) Apply a two-step background removal algorithm and deskew the stack into the deskewed view to preserve the spatial continuity of the sample structure; (2) The deskewed stack is sent to the Meta-VSI-SR model for laterally isotropic SR reconstruction; (3) The stack after 2D isotropic SR reconstruction is split into dual views by rotation and registration; and (4) finally, the registered dual-view stacks are fused via the proposed RL-DFN. The schematic workflow of Meta-rLLSM-VSIM is shown below.
 
-<br>
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="./Figs/Fig1.jpg" width=80%>
-    <br>
-    <div style="color:orange;
-    display: inline-block;
-    color: #999;
-    padding: 1px;">Fig. 1 Overall workflow of 3D isotropic reconstruction via Meta-rLLS-VSIM</div>
-</center>
-<br>
-
+<p align="center">
+<img src="./Figs/Fig1.jpg" width='800'>
+</p>
 In this repository, we provide a raw rLLSM image stack of F-actin as a simple demo to help users go through the 3D isotropic reconstruction pipeline.
 
 ## **Step1: Background removal and Deskew**
@@ -99,18 +88,10 @@ Afterwards, the 3D near-isotropic reconstruction result will be saved in _/Demo_
 <h1 id="Meta-VSI-SR">2D Isotropic Reconstruction via Meta-VSI-SR</h1>
 The meta-learning empowered virtual structured illumination super-resolution (Meta-VSI-SR) model is designed to realize isotropic super-resolution reconstruction in lateral. Briefly, the Meta-VSI-SR scheme is implemented following three steps: (1) Acquire the training dataset using SI mode of the LLS-SIM system and finetune the pre-trained Meta-VSI-SR model into a structure and SNR specific VSI-SR model; (2) Apply the finetuned model onto the raw data that is rotated to three orientations equally spaced by 60°, hence generating three anisotropic SR components; and (3) Combine the different components through a Wiener-based joint deconvolution algorithm in the Fourier space. The schematic illustrations of the training and inference of VSI-SR model are shown below. 
 
-<br>
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="./Figs/Fig2.jpg" width=80%>
-    <br>
-    <div style="color:orange;
-    display: inline-block;
-    color: #999;
-    padding: 1px;">Fig. 2 Training and inference procedures of the VSI-SR model</div>
-</center>
-<br>
+
+<p align="center">
+<img src="./Figs/Fig2.jpg" width='800'>
+</p>
 
 It is noteworthy that the meta-training scheme endows the Meta-LLS-VSIM and VSI-SR model with a fast adaptation capability when applied on an unseen biological specimen, because the Meta-VSI-SR model is able to adapt to a new specimen within a few training iterations on a small sort of training data. Once the specimen-specific model has been finetuned, it can be applied on other data of the same biologcial structure. Codes of meta-training, meta-finetuning, and inference with the Meta-VSI-SR model are contained in _./Code_for_2D_IsoRecon_.
 
@@ -204,18 +185,10 @@ If you have multiple GPU devices, you can accelerate meta training with _/Code_f
 
 We devised a self-supervised dual-view fusion algorithm, dubbed Richardson-Lucy dual-cycle fusion network (RL-DFN) that incorporated the multi-view Richardson-Lucy (RL) iteration and deterministic point spread function (PSF) priors into the network architecture and loss design. The RL-DFN is used to fuse two data views captured by the rLLSM system (before or after processed by the VSI-SR model) with comlementary resolution into an isotropic data volume. The network architecture of RL-DFN is shown in Fig. 3.
 
-<br>
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="./Figs/Fig3.jpg" width=80%>
-    <br>
-    <div style="color:orange;
-    display: inline-block;
-    color: #999;
-    padding: 1px;">Fig. 3 Network architecture of RL-DFN</div>
-</center>
-<br>
+<p align="center">
+<img src="./Figs/Fig3.jpg" width='800'>
+</p>
+
  
 ## **Folder Structure**
 Codes of RL-DFN are contained in _./Code_for_3D_IsoRecon_. Its structure is shown and explained below:
