@@ -103,7 +103,7 @@ RotAngle_Y=30.8  #The design angle between the detection objective and coverslip
 Then, the dual-view splitting results are saved as two TIFF files in _./Demo_Data_for_3D_IsoRecon/step3_.
 If you want to get more accurate registration results, you can expand the rotation range of the image around the X axis and Y axis during registration by adjusting parameter __*Range_x_rot*__ and __*Range_y_rot*__.
 
-## **Step4: Dual-View Fusion*
+## **Step4: Dual-View Fusion**
 Till now, two complementary views with laterally istropic super resolution have been generated from the raw rLLSM data volume, which will be fused into a final isotropic SR volume with the RL-DFN model (detailed in [here](#RL-DFN)). The codes of dual-view fusion are placed at  _./Code_for_3D_IsoRecon_. To apply the RL-DFN to generate the final isotropic SR volume, run the following command:
 ```shell
 python Workflow_of_Meta_rLLSM_VSIM_Recon/Step4_3D_Isotropic_Recon.py \
@@ -116,6 +116,8 @@ Afterwards, the 3D near-isotropic reconstruction result will be saved in _/Demo_
 
 <br><br>
 <h1 id="Model">💡 Model Training and Testing</h1>
+
+There are two deep learning model in the process of 3D isotropic reconstruction. One is the meta-learning empowered virtual structured illumination super-resolution (Meta-VSI-SR) model which can realize isotropic super-resolution reconstruction in lateral. The other is the dubbed Richardson-Lucy dual-cycle fusion network (RL-DFN) which fuses two data views captured by the rLLSM system (before or after processed by the VSI-SR model) with comlementary resolution into an isotropic data volume.
 
 <br><br>
 <h1 id="Meta-VSI-SR">2D Isotropic Reconstruction via Meta-VSI-SR</h1>
