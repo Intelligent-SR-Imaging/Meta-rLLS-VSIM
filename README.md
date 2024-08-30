@@ -7,7 +7,7 @@ This is a repository of the source codes for paper [*Fast adaptive super-resolut
 * ✨ [Method](#Method-Overview)
 * ⚙️ [Environment](#Environment)
 * 📦 [Demo Data&Pretrained Model](#Demo-Data&Pretrained-Model)
-* [Pipeline of 3D Isotropic Reconstruction](#Pipeline)
+* 🔰 [Pipeline](#Pipeline)
 * [2D Isotropic Reconstruction via Meta-VSI-SR](#Meta-VSI-SR)
 * [3D Isotropic Reconstruction via RL-DFN](#RL-DFN)
 <!-- TOC -->
@@ -48,7 +48,20 @@ If you want to run the cource codes constructed by MATLAB, please use the MATLAB
 <br><br>
 <h1 id="Demo-Data&Pretrained-Model">📦 Demo Data&Pretrained Model</h1>
 
-We have provided demo data at [Zenodo](https://doi.org/10.5281/zenodo.13486221). You can load __Demo Data__ and __Pretrained Model__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.13486221) and save them follow the notes.
+We have provided __Demo Data__ and __Pretrained Model__ at [Zenodo](https://doi.org/10.5281/zenodo.13486221). You can load __Demo Data__ and __Pretrained Model__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.13486221) and save them follow the notes.
+```
+a. Demo_Data_for_VSI_SR.zip
+If you want to run the Demo Case in our source code of VSI-SR model, please load this dataset and save it under ./Code_for_2D_IsoRecon/Demo_Data_for_VSI_SR.
+
+b.  Demo_Data_for_RL_DFN.zip
+If you want to run the Demo Case in our source code of RL-DFN model, please load this dataset and save it under ./Code_for_3D_IsoRecon/data.
+
+c. Demo_Data_for_3D_IsoRecon.zip
+If you want to run the Demo Case in our source code of 3D IsoRecon pipeline model, please load this dataset and save it under ./Demo_Data_for_3D_IsoRecon.
+
+d. Pretrained_Model_RL_DFN.zip
+If you want to run the Demo Case in our source code of RL-DFN model, please load this dataset and save it under ./Code_for_3D_IsoRecon/pretrained_model.
+```
 
 <br><br>
 <h1 id="Pipeline">Pipeline of 3D Isotropic Reconstruction</h1>
