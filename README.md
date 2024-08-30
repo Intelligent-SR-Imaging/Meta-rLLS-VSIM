@@ -8,6 +8,7 @@ This is a repository of the source codes for paper [*Fast adaptive super-resolut
 * ⚙️ [Environment](#Environment)
 * 📦 [Demo Data&Pretrained Model](#Demo-Data&Pretrained-Model)
 * 🔰 [Pipeline](#Pipeline)
+* 💡 [Model](#Model)
 * [2D Isotropic Reconstruction via Meta-VSI-SR](#Meta-VSI-SR)
 * [3D Isotropic Reconstruction via RL-DFN](#RL-DFN)
 <!-- TOC -->
@@ -112,6 +113,9 @@ python Workflow_of_Meta_rLLSM_VSIM_Recon/Step4_3D_Isotropic_Recon.py \
 ```
 
 Afterwards, the 3D near-isotropic reconstruction result will be saved in _/Demo_Data_for_3D_IsoRecon/step4_.
+
+<br><br>
+<h1 id="Model">💡 Model Training and Testing</h1>
 
 <br><br>
 <h1 id="Meta-VSI-SR">2D Isotropic Reconstruction via Meta-VSI-SR</h1>
