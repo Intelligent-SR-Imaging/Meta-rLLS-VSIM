@@ -6,7 +6,7 @@ This is a repository of the source codes for paper [*Fast adaptive super-resolut
 <!-- TOC -->
 * ✨ [Method](#Method-Overview)
 * ⚙️ [Environment](#Environment)
-* 📦 [Dataset](#Dataset)
+* 📦 [Demo Data&Pretrained Model](#Demo Data&Pretrained Model)
 * [Pipeline of 3D Isotropic Reconstruction](#Pipeline)
 * [2D Isotropic Reconstruction via Meta-VSI-SR](#Meta-VSI-SR)
 * [3D Isotropic Reconstruction via RL-DFN](#RL-DFN)
@@ -46,7 +46,7 @@ If you want to run the cource codes constructed by MATLAB, please use the MATLAB
 
 
 <br><br>
-<h1 id="Dataset">📦 Dataset</h1>
+<h1 id="Demo Data&Pretrained Model">📦 Demo Data&Pretrained Model</h1>
 
 We have provided demo data at [Zenodo](https://doi.org/10.5281/zenodo.13486221). You can load __Demo Data__ and __Pretrained Model__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.13486221) and save them follow the notes.
 
