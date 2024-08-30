@@ -117,10 +117,10 @@ Afterwards, the 3D near-isotropic reconstruction result will be saved in _/Demo_
 <br><br>
 <h1 id="Model">💡 Model Training and Testing</h1>
 
-There are two deep learning model in the process of 3D isotropic reconstruction. One is the meta-learning empowered virtual structured illumination super-resolution ([Meta-VSI-SR](#Meta-VSI-SR)) model which can realize isotropic super-resolution reconstruction in lateral. The other is the dubbed Richardson-Lucy dual-cycle fusion network ([RL-DFN]((#RL-DFN)) which fuses two data views captured by the rLLSM system (before or after processed by the VSI-SR model) with comlementary resolution into an isotropic data volume.
+There are two deep learning model in the process of 3D isotropic reconstruction. One is the meta-learning empowered virtual structured illumination super-resolution ([Meta-VSI-SR](#Meta-VSI-SR)) model which can realize isotropic super-resolution reconstruction in lateral. The other is the dubbed Richardson-Lucy dual-cycle fusion network ([RL-DFN](#RL-DFN)) which fuses two data views captured by the rLLSM system (before or after processed by the VSI-SR model) with comlementary resolution into an isotropic data volume.
 
 <br><br>
-<h1 id="Meta-VSI-SR">2D Isotropic Reconstruction via Meta-VSI-SR</h1>
+<h2 id="Meta-VSI-SR">2D Isotropic Reconstruction via Meta-VSI-SR</h2>
 The meta-learning empowered virtual structured illumination super-resolution (Meta-VSI-SR) model is designed to realize isotropic super-resolution reconstruction in lateral. Briefly, the Meta-VSI-SR scheme is implemented following three steps: (1) Acquire the training dataset using SI mode of the LLS-SIM system and finetune the pre-trained Meta-VSI-SR model into a structure and SNR specific VSI-SR model; (2) Apply the finetuned model onto the raw data that is rotated to three orientations equally spaced by 60°, hence generating three anisotropic SR components; and (3) Combine the different components through a Wiener-based joint deconvolution algorithm in the Fourier space. The schematic illustrations of the training and inference of VSI-SR model are shown below. 
 
 
@@ -130,7 +130,7 @@ The meta-learning empowered virtual structured illumination super-resolution (Me
 
 It is noteworthy that the meta-training scheme endows the Meta-LLS-VSIM and VSI-SR model with a fast adaptation capability when applied on an unseen biological specimen, because the Meta-VSI-SR model is able to adapt to a new specimen within a few training iterations on a small sort of training data. Once the specimen-specific model has been finetuned, it can be applied on other data of the same biologcial structure. Codes of meta-training, meta-finetuning, and inference with the Meta-VSI-SR model are contained in _./Code_for_2D_IsoRecon_.
 
-## **Folder Structure**
+### **Folder Structure**
 Folder structure of the _./Code_for_2D_IsoRecon_ are shown and explained below:
 - data: dataset for training or finetuning
 - Demo_Data_for_VSI_SR: demo data used for finetuning and laterally isotropic SR reconstruction
@@ -141,7 +141,7 @@ Folder structure of the _./Code_for_2D_IsoRecon_ are shown and explained below:
 - model: python source files of VSI-SR network
 - utils: python source files of utils
 
-## **Laterally isotropic SR reconstruction using VSI-SR models**
+### **Laterally isotropic SR reconstruction using VSI-SR models**
 Given a well-trained or a finetuned (from the Meta-VSI-SR model) VSI-SR model, a diffraction-limited LLSM image stack can be instantly reconstructed into a laterally isotropic SR counterpart following the inference procedure shown in Fig. 2b.
 Here we provide a VSI-SR model finetuned with F-actin data from the Meta-VSI-SR model as well as an assortative python script to perform the laterally isotropic SR reconstruction for a LLSM F-actin data, which can be executed by:
 
@@ -154,7 +154,7 @@ python Code_for_2D_IsoRecon/Test_VSI_SR.py \
 You can get the image stack of F-actin after laterally isotropic SR reconstruction from _./Code_for_2D_IsoRecon/data/recon_result/F-actin_. If you want to
 process your own F-actin data, please change __*Data_path*__ to the path of your own LLSM image stacks.
 
-## **Meta-finetuning from a pre-trained Meta-VSI-SR model**
+### **Meta-finetuning from a pre-trained Meta-VSI-SR model**
 If users would like to process data of a new type of biological specimen, a new VSI-SR model can be rapidly generated via meta-finetuning process from a pre-trained Meta-VSI-SR model using a few training dataset. Typically, we utilize data captured from 3 cells/ROIs as the finetuning dataset, in which two cells are used for finetuning and one cell for validation. The raw data used for finetuning should be organized in folder _./Code_for_2D_IsoRecon/DemoData_for_VSI_SR_Finetune_ as below:
 ```text
 ｜-- Lattice-SIM
@@ -167,7 +167,7 @@ If users would like to process data of a new type of biological specimen, a new 
 ```
 We provide examplar data of CCPs and  F-actin for executing the finetuning process as a demo. Following these steps to finetune a Meta-VSI-SR model:
 
-### **Data Preparation**
+#### **Data Preparation**
 The raw data for finetuning should be at first preprocessed and augmented into finetuning dataset, which consists of ~1000 LLSM/LLS-SIM patch pairs. The preprocessing operation includes deskew, background removal, Gaussian filtering for LLS-SIM images, and image stack normalization. The augmentation is performed via random cropping without rotaiton or flipping. Above data preparation can be accomplished by running the MATLAB script _./Code_for_2D_IsoRecon/Data_Prepare.m_ with the cell used for testing specified. The key parameters that are needed to pay special attention are shown below:
 ```python
 flag_make_training_data = false #flag of making training dataset
@@ -177,7 +177,7 @@ Save_path = '/Code_for_2D_IsoRecon/data' #save path for processed LLSM
 ```
 The preprocessed data is organized into finetuning dataset which is placed at _/Code_for_2D_IsoRecon/data/finetune_.
 
-### **Finetuning meta-VSI-SR**
+#### **Finetuning meta-VSI-SR**
 After data preparation, the finetuning process of the Meta-VSI-SR model can be executed by running the following command. Of note, during the finetuning process, the specified testing data will be processed at set intervals to screen the progression of the VSI-SR model.
 
 ```shell
@@ -189,10 +189,10 @@ python Code_for_2D_IsoRecon/Finetune_VSI_SR.py \
 The model after finetuning will be saved in _/Code_for_2D_IsoRecon/meta_rcan/finetune_, and you can apply it on data of the new type of biological specimen to realize laterally isotropic SR reconstruction.
 
 
-## **Train a new Meta-VSI-SR model**
+### **Train a new Meta-VSI-SR model**
 The Meta-VSI-SR model is trained based on a modified model-agnostic meta-learning (MAML) algorithm. If you want to train a new Meta-VSI-SR model, please follow these steps:
 
-### **Data Preparation**
+#### **Data Preparation**
 
 The data preparation of meta-training contains following steps: (i) applying deskew to all LLSM images (averaged from the raw LLS-SIM images) and their corresponding GT LLS-SIM images; (ii) removing the camera background, i.e., ~100 sCMOS counts, for LLSM images and applying a 2D Gaussian filter for GT LLS-SIM images to slightly suppress the noise-induced reconstruction artifacts; (iii) normalizing all images to [0,1]. Then, the whole dataset was augmented into tens of thousands of image patch pairs of LLSM patches (64×64×7 voxels) and their corresponding GT LLS-SIM patches (96×96×3 voxels), that is, ~3,000 pairs for each task. Above data preparation can be accomplished by running the MATLAB script _./Code_for_2D_IsoRecon/Data_Prepare.m_. The key parameters that are needed to pay special attention are specified below:
 
@@ -204,7 +204,7 @@ Save_path = '/Code_for_2D_IsoRecon/data' #save path for processed LLSM
 ```
 The preprocessed data is organized into training dataset which is placed at _/Code_for_2D_IsoRecon/data/train_.
 
-### **Train Meta-VSI-SR model**
+#### **Train Meta-VSI-SR model**
 After data preparation, run the following command to train a new Meta-VSI-SR model:
 
 ```shell
@@ -225,7 +225,7 @@ We devised a self-supervised dual-view fusion algorithm, dubbed Richardson-Lucy 
 </p>
 
  
-## **Folder Structure**
+### **Folder Structure**
 Codes of RL-DFN are contained in _./Code_for_3D_IsoRecon_. Its structure is shown and explained below:
 - data: data for training or testing and testing result
 - models: python source files of RL-DFN network architecture
@@ -234,10 +234,10 @@ Codes of RL-DFN are contained in _./Code_for_3D_IsoRecon_. Its structure is show
 - train_RL_DFN: model's logs, checkpoints and visualization results during training
 - utils: python source files of utils
 
-## **Testing**
+### **Testing**
 We provide a pre-trained RL-DFN model trained with F-actin dataset for a simple demo, which is placed at _./pretrained_model/F-actin_. You can test this pre-traiend RL-DFN model following these steps:
 
-### **Data Preparation**
+#### **Data Preparation**
 In that the RL-DFN incorporates RL deconvolution iteration into its forward processing model, the corrsponding PSF files referred to view-A and view-B should be provided in _./Code_for_3D_IsoRecon/PSFs_. And the dual-view data to be fused should be placed at _./Code_for_3D_IsoRecon/data/TestData_ and organized as below:
 ```text
 ｜-- TestData
@@ -253,7 +253,7 @@ In that the RL-DFN incorporates RL deconvolution iteration into its forward proc
                          | -- ···
 ``` 
 where the _Struct_ denotes the type of biological specimen. The image stacks of View-A and View-B need to be respectively placed under _TestData/Struct/ViewA/_ and _TestData/Struct/ViewB/_. Two views' data at the same time point should have the same file name.
-### **Testing RL-DFN**
+#### **Testing RL-DFN**
 Then use following command to run the pre-trained RL-DFN model:
 
 ```shell
@@ -264,10 +264,10 @@ python Code_for_3D_IsoRecon/test_RL_DFN.py \
 ```
 Afterwards, the 3D near-isotropic reconstruction result will be saved in _./Code_for_3D_IsoRecon/data/result_.
 
-## **Train**
+### **Train**
 The RL-DFN model can be trained in a self-supervised manner using the data to be fused themselves. A new RL-DFN model can be trained following these steps:
 
-### **Data Preparation**
+#### **Data Preparation**
 Similar to the inference procedure, the corrsponding PSF files referred to view-A and view-B should be provided in _./Code_for_3D_IsoRecon/PSFs_. And the dual-view training data should be placed at _./Code_for_3D_IsoRecon/data/TrainData_ and organized as below:
 
 ```text
@@ -285,7 +285,7 @@ Similar to the inference procedure, the corrsponding PSF files referred to view-
 ``` 
 where the _Struct_ denotes the type of biological specimen. The image stacks of View-A and View-B need to be respectively placed under _TrainData/Struct/ViewA/_ and _TrainData/Struct/ViewB/_. Two views' data at the same time point should have the same file name.
 
-### **Train RL-DFN model**
+#### **Train RL-DFN model**
 After the data preparation, a new RL-DFN model can be trained by using follow command:
 
 ```shell
