@@ -1,11 +1,12 @@
 # **Implementation of Meta-rLLSM-VSIM**
 This is a repository of the source codes for paper [*Fast adaptive super-resolution lattice light-sheet microscopy for rapid, long-term, near-isotropic subcellular imaging*](https://www.biorxiv.org/content/10.1101/2024.05.09.593386v2).
-[Paper](https://www.biorxiv.org/content/10.1101/2024.05.09.593386v2)
+
 
 
 <!-- TOC -->
 * ✨ [Method](#Method-Overview)
 * ⚙️ [Environment](#Environment)
+* 📦 [Dataset](#Dataset)
 * [Pipeline of 3D Isotropic Reconstruction](#Pipeline)
 * [2D Isotropic Reconstruction via Meta-VSI-SR](#Meta-VSI-SR)
 * [3D Isotropic Reconstruction via RL-DFN](#RL-DFN)
@@ -43,7 +44,11 @@ pip install -r ./requirements.txt
 
 If you want to run the cource codes constructed by MATLAB, please use the MATLAB(version > 2017b) with Image Processing Toolbox.
 
-If you want to run our demo code, we have provided demo data at https://doi.org/10.5281/zenodo.13486221. Please follow the discription
+
+<br><br>
+<h1 id="Dataset">📦 Dataset</h1>
+
+We have provided demo data at [Zenodo](https://doi.org/10.5281/zenodo.13486221). You can load __Demo Data__ and __Pretrained Model__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.13486221) and save them follow the notes.
 
 <br><br>
 <h1 id="Pipeline">Pipeline of 3D Isotropic Reconstruction</h1>
