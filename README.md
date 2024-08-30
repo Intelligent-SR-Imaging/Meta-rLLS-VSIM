@@ -9,8 +9,6 @@ This is a repository of the source codes for paper [*Fast adaptive super-resolut
 * 📦 [Demo Data&Pretrained Model](#Demo-Data&Pretrained-Model)
 * 🔰 [Pipeline](#Pipeline)
 * 💡 [Model](#Model)
-* [2D Isotropic Reconstruction via Meta-VSI-SR](#Meta-VSI-SR)
-* [3D Isotropic Reconstruction via RL-DFN](#RL-DFN)
 <!-- TOC -->
 
 <br><br>
@@ -118,6 +116,13 @@ Afterwards, the 3D near-isotropic reconstruction result will be saved in _/Demo_
 <h1 id="Model">💡 Model Training and Testing</h1>
 
 There are two deep learning model in the process of 3D isotropic reconstruction. One is the meta-learning empowered virtual structured illumination super-resolution ([Meta-VSI-SR](#Meta-VSI-SR)) model which can realize isotropic super-resolution reconstruction in lateral. The other is the dubbed Richardson-Lucy dual-cycle fusion network ([RL-DFN](#RL-DFN)) which fuses two data views captured by the rLLSM system (before or after processed by the VSI-SR model) with comlementary resolution into an isotropic data volume.
+
+We provide here the tutorial of the implementation of Meta-VSI-SR and RL-DFN, you can follow the instructions to run the training, finetune and testing demo code.
+
+<!-- TOC -->
+* [2D Isotropic Reconstruction via Meta-VSI-SR](#Meta-VSI-SR)
+* [3D Isotropic Reconstruction via RL-DFN](#RL-DFN)
+<!-- TOC -->
 
 <br><br>
 <h2 id="Meta-VSI-SR">2D Isotropic Reconstruction via Meta-VSI-SR</h2>
