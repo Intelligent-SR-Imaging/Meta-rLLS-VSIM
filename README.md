@@ -1,15 +1,29 @@
 # **Implementation of Meta-rLLSM-VSIM**
 This is a repository of the source codes for paper [*Fast adaptive super-resolution lattice light-sheet microscopy for rapid, long-term, near-isotropic subcellular imaging*](https://www.biorxiv.org/content/10.1101/2024.05.09.593386v2).
-In this paper, we present the meta learning-empowered reflective lattice light-sheet virtual structured illumination microscopy (Meta-rLLS-VSIM), which instantly upgrades LLSM to a near-isotropic super resolution of ∼120-nm laterally and ~160-nm axially, more than twofold improvement in each dimension, without any modification of the optical system or sacrifice of other imaging metrics. We provide here the tutorial of the implementation of Meta-rLLSM-VSIM, including the environment configuration and the overall pipeline of Meta-rLLSM-VSIM reconstruction.
+[Paper](https://www.biorxiv.org/content/10.1101/2024.05.09.593386v2)
+
 
 <!-- TOC -->
-* [Environment](#Environment)
+* ✨ [Method](#Method-Overview)
+* ⚙️ [Environment](#Environment)
 * [Pipeline of 3D Isotropic Reconstruction](#Pipeline)
 * [2D Isotropic Reconstruction via Meta-VSI-SR](#Meta-VSI-SR)
 * [3D Isotropic Reconstruction via RL-DFN](#RL-DFN)
 <!-- TOC -->
 
-#Environment</h1>
+<br><br>
+<h1 id="Method-Overview">✨ Method Overview</h1>
+
+In this paper, we present the meta learning-empowered reflective lattice light-sheet virtual structured illumination microscopy (Meta-rLLS-VSIM), which instantly upgrades LLSM to a near-isotropic super resolution of ∼120-nm laterally and ~160-nm axially, more than twofold improvement in each dimension, without any modification of the optical system or sacrifice of other imaging metrics. We provide here the tutorial of the implementation of Meta-rLLSM-VSIM, including the environment configuration and the overall pipeline of Meta-rLLSM-VSIM reconstruction.
+
+<p align="center">
+<img src="./Figs/Fig1.jpg" width='800'>
+</p>
+
+
+<br><br>
+<h1 id="Environment">⚙️ Environment</h1>
+
 The cource codes were mainly constructed by Python and PyTorch under an environment of:
 
 ```text
@@ -36,9 +50,6 @@ If you want to run our demo code, we have provided demo data at https://doi.org/
 
 The integrated pipeline of 3D isotropic reconstruction is developed to reconstruct a near-isotropic SR image stack from the corresponding reflective lattice light-sheet microscopy (rLLSM) acquisitions, which consists of four major steps: (1) Apply a two-step background removal algorithm and deskew the stack into the deskewed view to preserve the spatial continuity of the sample structure; (2) The deskewed stack is sent to the Meta-VSI-SR model for laterally isotropic SR reconstruction; (3) The stack after 2D isotropic SR reconstruction is split into dual views by rotation and registration; and (4) finally, the registered dual-view stacks are fused via the proposed RL-DFN. The schematic workflow of Meta-rLLSM-VSIM is shown below.
 
-<p align="center">
-<img src="./Figs/Fig1.jpg" width='800'>
-</p>
 In this repository, we provide a raw rLLSM image stack of F-actin as a simple demo to help users go through the 3D isotropic reconstruction pipeline.
 
 ## **Step1: Background removal and Deskew**
