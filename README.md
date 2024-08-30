@@ -305,3 +305,29 @@ You select specific type of biological specimen by setting the parameter __*Stru
 <br><br>
 <h1 id="Results">📊  Results</h1>
 
+## 1. Comparison with LLSM, Deconv. LLSM, Conv. LLS-SIM
+<p align="center">
+<img src="./Figs/Fig4.jpg" width='800'>
+</p>
+
+## 2. Fast adaptation performance of meta-VSI-SR
+<p align="center">
+<img src="./Figs/Fig5.jpg" width='800'>
+</p>
+
+## 3. 4D SR live imaging by Meta-LLS-VSIM
+<p align="center">
+<img src="./Figs/Fig6.jpg" width='800'>
+</p>
+
+## 4. Dramatically improves resolution in all dimensions via Meta-rLLS-VSIM
+<p align="center">
+<img src="./Figs/Fig7.jpg" width='800'>
+</p>
+
+## 5. Comparison with existing axial resolution enhancement methods
+<p align="center">
+<img src="./Figs/Fig8.jpg" width='800'>
+</p>
+
+
