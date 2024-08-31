@@ -1,3 +1,3 @@
-Please load demo data for VSI-SR from https://zenodo.org/records/13486221 and unzip the Demo_Data_for_VSI-SR.zip under this directory.
+Please load demo data for VSI-SR from https://doi.org/10.5281/zenodo.13622260 and unzip the Demo_Data_for_VSI-SR.zip under this directory.
 
 a. Demo_Data_for_VSI_SR.zip      If you want to run the demo case in our source code of VSI-SR model, please load this dataset and save it under ./Code_for_2D_IsoRecon/Demo_Data_for_VSI_SR.
