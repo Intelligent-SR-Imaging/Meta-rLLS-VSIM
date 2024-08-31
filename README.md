@@ -1,4 +1,4 @@
-# **Implementation of Meta-rLLSM-VSIM**
+# **Meta-rLLSM-VSIM: Meta Learning-Empowered Reflective Lattice Light-Sheet Virtual Structured Illumination Microscopy**
 This is a repository of the source codes for paper [*Fast adaptive super-resolution lattice light-sheet microscopy for rapid, long-term, near-isotropic subcellular imaging*](https://www.biorxiv.org/content/10.1101/2024.05.09.593386v2).
 
 
