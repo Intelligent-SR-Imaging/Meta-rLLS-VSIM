@@ -628,11 +628,11 @@ class DualGANASectionModel(BaseModel):
 
     def load_checkpoint(self, dataroot, map_location=None):
         if self.deconv_iter == 1:
-            self.netF_A_list[0].load_state_dict(torch.load(dataroot + 'net_FA.pth', map_location=map_location,weights_only=False))
-            self.netF_B_list[0].load_state_dict(torch.load(dataroot + 'net_FB.pth', map_location=map_location,weights_only=False))
-            self.netG_list[0].load_state_dict(torch.load(dataroot + 'net_G.pth', map_location=map_location,weights_only=False))
-            self.netD_A.load_state_dict(torch.load(dataroot + 'netD_A.pth', map_location=map_location,weights_only=False))
-            self.netD_B.load_state_dict(torch.load(dataroot + 'netD_B.pth', map_location=map_location,weights_only=False))
+            self.netF_A_list[0].load_state_dict(torch.load(dataroot + 'net_FA.pth', map_location=map_location))
+            self.netF_B_list[0].load_state_dict(torch.load(dataroot + 'net_FB.pth', map_location=map_location))
+            self.netG_list[0].load_state_dict(torch.load(dataroot + 'net_G.pth', map_location=map_location))
+            self.netD_A.load_state_dict(torch.load(dataroot + 'netD_A.pth', map_location=map_location))
+            self.netD_B.load_state_dict(torch.load(dataroot + 'netD_B.pth', map_location=map_location))
         elif self.deconv_iter == 2:
             self.netF_A_list[0].load_state_dict(torch.load(dataroot + 'net_FA.pth', map_location=map_location))
             self.netF_B_list[0].load_state_dict(torch.load(dataroot + 'net_FB.pth', map_location=map_location))
