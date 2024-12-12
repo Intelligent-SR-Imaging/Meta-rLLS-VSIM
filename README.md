@@ -189,7 +189,7 @@ Current_path = pwd
 flag_make_training_data = false #flag of making training dataset
 flag_make_finetuning_data = true #flag of making finetuning dataset
 Data_path = '/Code_for_2D_IsoRecon/Demo_Data_for_VSI_SR/Lattice-SIM' #raw data path
-Save_path = '/Code_for_2D_IsoRecon/data' #save path for processed LLSM
+Save_path = '/Code_for_2D_IsoRecon/data/finetune' #save path for processed LLSM
 ```
 The preprocessed data is organized into finetuning dataset which is placed at _/Code_for_2D_IsoRecon/data/finetune_.
 
@@ -198,7 +198,7 @@ After data preparation, the finetuning process of the Meta-VSI-SR model can be e
 
 ```shell
 python Code_for_2D_IsoRecon/Finetune_VSI_SR.py \
---Data_path="/Code_for_2D_IsoRecon/data/finetune" \
+--Data_path="/Code_for_2D_IsoRecon/data/finetune/finetune" \
 --Save_path="/Code_for_2D_IsoRecon/meta_rcan/finetune" \
 --model_path="/Code_for_2D_IsoRecon/trained_meta_model/meta_model.pth"
 ```
