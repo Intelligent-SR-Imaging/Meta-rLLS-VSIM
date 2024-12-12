@@ -1,1 +1,0 @@
-Please load meta-training dataset of VSI-SR from https://doi.org/10.5281/zenodo.14322457, please follow the training dataset.xlsx and load datasets of different biological structure under this file.
