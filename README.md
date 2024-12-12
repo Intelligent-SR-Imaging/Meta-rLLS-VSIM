@@ -227,7 +227,7 @@ After data preparation, run the following command to train a new Meta-VSI-SR mod
 
 ```shell
 python  Code_for_2D_IsoRecon/Train_meta_VSI_SR.py  \
---Data_path='/Code_for_2D_IsoRecon/data/train' \
+--Data_path='/Code_for_2D_IsoRecon/data/train/train' \
 --Save_path='/Code_for_2D_IsoRecon/meta_rcan'
 ```
 
