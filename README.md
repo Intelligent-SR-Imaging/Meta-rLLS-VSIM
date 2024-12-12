@@ -198,7 +198,7 @@ After data preparation, the finetuning process of the Meta-VSI-SR model can be e
 
 ```shell
 python Code_for_2D_IsoRecon/Finetune_VSI_SR.py \
---Data_path="/Code_for_2D_IsoRecon/data/finetune/finetune" \
+--Data_path="/Code_for_2D_IsoRecon/data/finetune" \
 --Save_path="/Code_for_2D_IsoRecon/meta_rcan/finetune" \
 --model_path="/Code_for_2D_IsoRecon/trained_meta_model/meta_model.pth"
 ```
