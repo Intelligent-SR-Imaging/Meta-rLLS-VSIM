@@ -1,0 +1,45 @@
+clear;
+addpath(genpath('./XxUtils'));
+% flag of making training dataset
+flag_make_training_data = false;
+% flag of making finetuning dataset
+flag_make_finetuning_data = true;
+
+% make training dataset
+if flag_make_training_data
+    % raw data path
+    data_path = '/mnt/Qiaochang/IsoLatticeData/Meta_train';
+    % save path for processed LLSM
+    LLSM_name = 'Raw_LLS_SIM_SNR*.mrc';
+    save_path1 = '/home/wzf_ibp/MZSR-wzf/data/data_for_test_code/LLSM-LR-meta';
+    % save path for processed LLS-SIM
+    LLS_SIM_name = 'GT_LLS_SIM.mrc';
+    save_path2 = '/home/wzf_ibp/MZSR-wzf/data/data_for_test_code/LLSIM-HR-meta';
+    % save path for meta training datset
+    save_path3 = '/home/wzf_ibp/MZSR-wzf/data/data_for_test_code/train-meta';
+    % preprocessing LLSM data
+    Process_LLSM(data_path, save_path1, LLSM_name);
+    % preprocessing LLS-SIM data
+    Process_LLSIM(data_path, save_path2, LLS_SIM_name);
+    make_meta_task(save_path1, save_path2, save_path3);
+end
+
+% make finetuning dataset
+if flag_make_finetuning_data
+    % raw data path
+    data_path = '/mnt/Qiaochang/IsoLatticeData/Isolattice_code_wzf/demo_data/Lattice-SIM';
+    % save path for processed LLSM
+    LLSM_name1 = 'Illum488_Cyc1_Ch1_St4.mrc';   % for meta finetuning
+    save_path1 = '/home/wzf_ibp/MZSR-wzf/data/data_for_test_code/LLSM-LR';
+    % save path for processed LLS-SIM
+    LLS_SIM_name1 = 'Illum488_Cyc1_Ch1_St5-wiener0.02-fixk0-Fd.mrc';  % for meta finetuning
+    save_path2 = '/home/wzf_ibp/MZSR-wzf/data/data_for_test_code/LLSIM-HR';
+    % save path for finetuning dataset
+    save_path4 = '/home/wzf_ibp/MZSR-wzf/data/data_for_test_code/finetune-meta';
+    
+    % preprocessing LLSM data
+    Process_LLSM(data_path, save_path1, LLSM_name1);
+    % preprocessing LLS-SIM data
+    Process_LLSIM(data_path, save_path2, LLS_SIM_name1);
+    make_finetune_dataset(save_path1, save_path2, save_path4);
+end
