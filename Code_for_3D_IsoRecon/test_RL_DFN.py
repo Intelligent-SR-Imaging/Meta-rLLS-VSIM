@@ -42,8 +42,8 @@ def parse_option():
     parser.add_argument('--IMAGE_W', type=int, default=768)
     parser.add_argument('--IMAGE_Z', type=int, default=101)
     # path to psfA/psfB
-    parser.add_argument('--psfA_root', type=str, default="/Code_for_3D_IsoRecon/PSFs/psf_A2.tif", help='path to psfA')
-    parser.add_argument('--psfB_root', type=str, default="/Code_for_3D_IsoRecon/PSFs/psf_B2.tif", help='path to psfB')
+    parser.add_argument('--psfA_root', type=str, default="/Code_for_3D_IsoRecon/PSFs/PSF_A1.tif", help='path to psfA')
+    parser.add_argument('--psfB_root', type=str, default="/Code_for_3D_IsoRecon/PSFs/PSF_B1.tif", help='path to psfB')
     # the path to mrc head
     parser.add_argument('--mrc_root', default="/Code_for_3D_IsoRecon/utils/mrc/test.mrc")
 
