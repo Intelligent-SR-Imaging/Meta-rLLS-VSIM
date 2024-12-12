@@ -62,7 +62,7 @@ If you want to run the Demo Case in our source code of 3D IsoRecon pipeline mode
 d. Pretrained_Model_RL_DFN.zip
 If you want to run the Demo Case in our source code of RL-DFN model, please load this dataset and save it under ./Code_for_3D_IsoRecon/pretrained_model.
 ```
-
+We also provide dataset,BioSR of LLS-SIM, at [Zenodo](https://zenodo.org/records/14322457) for meta-training of VSI-SR. 
 <br><br>
 <h1 id="Pipeline">🔰 Pipeline of 3D Isotropic Reconstruction</h1>
 
@@ -203,13 +203,13 @@ The model after finetuning will be saved in _/Code_for_2D_IsoRecon/meta_rcan/fin
 The Meta-VSI-SR model is trained based on a modified model-agnostic meta-learning (MAML) algorithm. If you want to train a new Meta-VSI-SR model, please follow these steps:
 
 #### **Data Preparation**
-
+We provide the meta-training dataset of VSI-SR at [Zenodo](https://zenodo.org/records/14322457). Please load datasets of different biological structures under _./Code_for_2D_IsoRecon/Demo_Data_for_VSI_SR/BioSR_for_LLS-SIM_
 The data preparation of meta-training contains following steps: (i) applying deskew to all LLSM images (averaged from the raw LLS-SIM images) and their corresponding GT LLS-SIM images; (ii) removing the camera background, i.e., ~100 sCMOS counts, for LLSM images and applying a 2D Gaussian filter for GT LLS-SIM images to slightly suppress the noise-induced reconstruction artifacts; (iii) normalizing all images to [0,1]. Then, the whole dataset was augmented into tens of thousands of image patch pairs of LLSM patches (64×64×7 voxels) and their corresponding GT LLS-SIM patches (96×96×3 voxels), that is, ~3,000 pairs for each task. Above data preparation can be accomplished by running the MATLAB script _./Code_for_2D_IsoRecon/Data_Prepare.m_. The key parameters that are needed to pay special attention are specified below:
 
 ```python
 flag_make_training_data = true #flag of making training dataset
 flag_make_finetuning_data = false #flag of making finetuning dataset
-Data_path = '/Code_for_2D_IsoRecon/Demo_Data_for_VSI_SR/Lattice-SIM' #raw data path
+Data_path = '/Code_for_2D_IsoRecon/Demo_Data_for_VSI_SR/BioSR_for_LLS-SIM' #raw data path
 Save_path = '/Code_for_2D_IsoRecon/data' #save path for processed LLSM
 ```
 The preprocessed data is organized into training dataset which is placed at _/Code_for_2D_IsoRecon/data/train_.
