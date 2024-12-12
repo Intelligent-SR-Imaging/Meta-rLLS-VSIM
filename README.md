@@ -78,6 +78,8 @@ In this repository, we provide a raw rLLSM image stack of F-actin as a simple de
 The raw rLLSM image stack is first preprocessed with a MATLAB script _./Workflow_of_Meta_rLLSM_VSIM_Recon/Step1_BackgroundRM_and_Deskew.m_ to remove epi-fluoresence and perform deskew. The key parameters that are needed to pay special attention here are shown below:
 
 ```python
+Current_path = pwd
+# You can change Current_path as the source code file root or run this code at the source code file root and pwd will automaticly get the file root.
 channel='488'
 celllabel='F-actin/'
 Data_path='/Demo_Data_for_3D_IsoRecon/data/' #The path to raw_data
@@ -99,6 +101,8 @@ After laterally isotropic SR reconstruction, the image stack is placed at _./Dem
 The stacks after laterall isotropic SR reconstruction are split into two views using a MATLAB script _./Workflow_of_Meta_rLLSM_VSIM_Recon/Step3_Rotation_and_Calibration.m_. The rotation process need the design angle between the detection objective and coverslip, which is 30.8 degrees in our setup. The key parameters that are needed to pay special attention here are shown below:
 
 ```python
+Current_path = pwd
+# You can change Current_path as the source code file root or run this code at the source code file root and pwd will automaticly get the file root.
 Data_path='/Demo_Data_for_3D_IsoRecon/step2/recon/0001/F-actin.tif' #The dual-view data wait to be split
 Save_path='/Demo_Data_for_3D_IsoRecon/step3' #The path to save
 RotAngle_Y=30.8  #The design angle between the detection objective and coverslip
@@ -180,6 +184,8 @@ We provide examplar data of CCPs and  F-actin for executing the finetuning proce
 #### **Data Preparation**
 The raw data for finetuning should be at first preprocessed and augmented into finetuning dataset, which consists of ~1000 LLSM/LLS-SIM patch pairs. The preprocessing operation includes deskew, background removal, Gaussian filtering for LLS-SIM images, and image stack normalization. The augmentation is performed via random cropping without rotaiton or flipping. Above data preparation can be accomplished by running the MATLAB script _./Code_for_2D_IsoRecon/Data_Prepare.m_ with the cell used for testing specified. The key parameters that are needed to pay special attention are shown below:
 ```python
+Current_path = pwd
+# You can change Current_path as the source code file root or run this code at the source code file root and pwd will automaticly get the file root.
 flag_make_training_data = false #flag of making training dataset
 flag_make_finetuning_data = true #flag of making finetuning dataset
 Data_path = '/Code_for_2D_IsoRecon/Demo_Data_for_VSI_SR/Lattice-SIM' #raw data path
@@ -207,10 +213,12 @@ We provide the meta-training dataset of VSI-SR at [Zenodo](https://zenodo.org/re
 The data preparation of meta-training contains following steps: (i) applying deskew to all LLSM images (averaged from the raw LLS-SIM images) and their corresponding GT LLS-SIM images; (ii) removing the camera background, i.e., ~100 sCMOS counts, for LLSM images and applying a 2D Gaussian filter for GT LLS-SIM images to slightly suppress the noise-induced reconstruction artifacts; (iii) normalizing all images to [0,1]. Then, the whole dataset was augmented into tens of thousands of image patch pairs of LLSM patches (64×64×7 voxels) and their corresponding GT LLS-SIM patches (96×96×3 voxels), that is, ~3,000 pairs for each task. Above data preparation can be accomplished by running the MATLAB script _./Code_for_2D_IsoRecon/Data_Prepare.m_. The key parameters that are needed to pay special attention are specified below:
 
 ```python
+Current_path = pwd
+# You can change Current_path as the source code file root or run this code at the source code file root and pwd will automaticly get the file root.
 flag_make_training_data = true #flag of making training dataset
 flag_make_finetuning_data = false #flag of making finetuning dataset
-Data_path = '/Code_for_2D_IsoRecon/Demo_Data_for_VSI_SR/BioSR_for_LLS-SIM' #raw data path
-Save_path = '/Code_for_2D_IsoRecon/data' #save path for processed LLSM
+Data_path = '/Code_for_2D_IsoRecon/BioSR_for_LLS-SIM' #raw data path
+Save_path = '/Code_for_2D_IsoRecon/data/train' #save path for processed LLSM
 ```
 The preprocessed data is organized into training dataset which is placed at _/Code_for_2D_IsoRecon/data/train_.
 
