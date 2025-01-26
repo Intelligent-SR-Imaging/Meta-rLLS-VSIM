@@ -50,6 +50,7 @@ If you want to run the cource codes constructed by MATLAB, please use the MATLAB
 
 We have provided __Demo Data__ and __Pretrained Model__ at [Zenodo](https://zenodo.org/records/14322457). You can load __Demo Data__ and __Pretrained Model__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.14322457) and save them follow the notes.
 ```
+When you unzip the zip file, please make sure there is not an additional but unnecessary folder which is the same as the name of the zip file.
 a. Demo_Data_for_VSI_SR.zip
 If you want to run the Demo Case in our source code of VSI-SR model, please load this dataset and save it under ./Code_for_2D_IsoRecon/Demo_Data_for_VSI_SR.
 
@@ -62,7 +63,7 @@ If you want to run the Demo Case in our source code of 3D IsoRecon pipeline mode
 d. Pretrained_Model_RL_DFN.zip
 If you want to run the Demo Case in our source code of RL-DFN model, please load this dataset and save it under ./Code_for_3D_IsoRecon/pretrained_model.
 ```
-We also provide dataset,BioSR of LLS-SIM, at [Zenodo](https://zenodo.org/records/14322457) for meta-training of VSI-SR. When you run our demo code, please make sure all operations are based on the root of the downloaded folder.
+We also provide dataset,BioSR of LLS-SIM, at [Zenodo](https://zenodo.org/records/14322457) for meta-training of VSI-SR. When you run our demo code, please make sure all operations are based on the root of the downloaded folder. 
 
 <br><br>
 <h1 id="Pipeline">🔰 Pipeline of 3D Isotropic Reconstruction</h1>
