@@ -222,7 +222,7 @@ flag_make_finetuning_data = false #flag of making finetuning dataset
 Data_path = '/Code_for_2D_IsoRecon/BioSR_for_LLS-SIM' #raw data path
 Save_path = '/Code_for_2D_IsoRecon/data/train' #save path for processed LLSM
 ```
-The preprocessed data is organized into training dataset which is placed at _/Code_for_2D_IsoRecon/data/train_.
+The preprocessed data is organized into training dataset which is placed at _/Code_for_2D_IsoRecon/data/train/train_.
 
 #### **Train Meta-VSI-SR model**
 After data preparation, run the following command to train a new Meta-VSI-SR model:
