@@ -62,7 +62,8 @@ If you want to run the Demo Case in our source code of 3D IsoRecon pipeline mode
 d. Pretrained_Model_RL_DFN.zip
 If you want to run the Demo Case in our source code of RL-DFN model, please load this dataset and save it under ./Code_for_3D_IsoRecon/pretrained_model.
 ```
-We also provide dataset,BioSR of LLS-SIM, at [Zenodo](https://zenodo.org/records/14322457) for meta-training of VSI-SR. 
+We also provide dataset,BioSR of LLS-SIM, at [Zenodo](https://zenodo.org/records/14322457) for meta-training of VSI-SR. When you run our demo code, please make sure all operations are based on the root of the downloaded folder.
+
 <br><br>
 <h1 id="Pipeline">🔰 Pipeline of 3D Isotropic Reconstruction</h1>
 
