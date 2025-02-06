@@ -3,6 +3,11 @@ Train a meta-VSI-SR model
 Created on Tue Sep 30 19:31:36 2023
 @ Last Updated by Lin Yuhuan
 """
+"""
+FAQ:
+1. The meta learning need multiple meta task, please make sure the meta_batch_size is not smaller than 3.
+2. Please make sure the cuda id is right and the memory is enough.
+"""
 
 import os
 import sys
