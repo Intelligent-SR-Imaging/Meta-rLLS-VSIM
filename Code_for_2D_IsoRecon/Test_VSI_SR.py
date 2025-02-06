@@ -3,6 +3,11 @@ Test a fine-tuned VSI-SR model
 Created on Tue Sep 30 19:31:36 2023
 @ Last Updated by Lin Yuhuan
 """
+"""
+FAQ
+1. Please make sure you load the all demo data under the right location.
+2. Please make sure the file structure is match between data location and code.
+"""
 import numpy as np
 import os
 import sys
