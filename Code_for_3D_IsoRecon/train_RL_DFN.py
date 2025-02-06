@@ -3,6 +3,12 @@ the code for training RL-DFN model
 Created on Tue Sep 30 19:31:36 2023
 @ Last Updated by Lin Yuhuan
 """
+"""
+FAQ
+1. The psf file need match with the input image, or the model's performance will decrease.
+2. Make sure the psf direction is match with the view (A or B) when training.
+3. Make sure the crop's H,W,Z is smaller than the image's H,W,Z.
+"""
 import glob
 import os
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
@@ -136,7 +142,7 @@ if __name__ == '__main__':
         rot_view_2 += glob.glob(viewBroot)
         unrot_view += glob.glob(viewBroot)
 
-
+    # sort the files of two views
     rot_view_1 = sorted(rot_view_1)
     rot_view_2 = sorted(rot_view_2)
     unrot_view  = sorted(unrot_view)
@@ -212,11 +218,13 @@ if __name__ == '__main__':
         for  data in tqdm.tqdm(train_loader):
             i+=1
             epoch_iter+=1
+            #model perpare
             model.set_input(data)
             model.optimize_parameters()
             model.total_iters = total_iters
             if visualization:
                 model.visualization(visualization_root)
+            # prepare loss of different module
             losses = model.get_current_losses()
             D_A_loss = losses['D_A']
             G_A_loss = losses['G_A']
@@ -224,6 +232,7 @@ if __name__ == '__main__':
             cycle1_loss = losses['cycle1']
             cycle2_loss = losses['cycle2']
             D_B_loss = losses['D_B']
+            #prepare tensorboard
             writer.add_scalar('D_A', D_A_loss, global_step=count, walltime=None)
             writer.add_scalar('D_B', D_B_loss, global_step=count, walltime=None)
             writer.add_scalar('G_A', G_A_loss, global_step=count, walltime=None)
@@ -231,21 +240,22 @@ if __name__ == '__main__':
             writer.add_scalar('cycle1', cycle1_loss, global_step=count, walltime=None)
             writer.add_scalar('cycle2', cycle2_loss, global_step=count, walltime=None)
             count += 1
-
+            
+            #change the section angle randomly
             if i % pixel_off_update == 0:
                 pixel_off = random.uniform(0, 1)
                 theta_off = random.uniform(-pi * (30 / 180), pi * (30 / 180))
                 model.section_prepare(H=60, W=120, head=head, pixel_off=pixel_off,
                                       theta_off=theta_off)
-
-            if i % print_freq == 0:  # print training losses and save logging information to the disk
+            # print training losses and save logging information to the disk
+            if i % print_freq == 0:
                 print("----------------------------------")
                 print("exp name: " + str(name) + ", gpu_id:" + str(gpu_ids))
                 print("----------------------------------")
                 losses = model.get_current_losses()
                 print("current loss:", losses)
-
-            if total_iters % save_latest_freq == 0:  # cache our latest model every <save_latest_freq> iterations
+            # cache our latest model every <save_latest_freq> iterations
+            if total_iters % save_latest_freq == 0: 
                 ckp_root = checkpoints_root + "/iteration" + str(total_iters) + "/"
                 epoch_progress = round(float(epoch_iter / dataset_size), 2) * 100
                 print('saving the latest model (epoch %d, epoch_progress %d%%)' % (epoch, epoch_progress))
