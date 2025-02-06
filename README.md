@@ -148,13 +148,15 @@ It is noteworthy that the meta-training scheme endows the Meta-LLS-VSIM and VSI-
 
 ### **Folder Structure**
 Folder structure of the _./Code_for_2D_IsoRecon_ are shown and explained below:
-- data: dataset for training or finetuning
+- BioSR_for_LLS-SIM: dataset of LLSM and LLS-SIM image pairs
 - Demo_Data_for_VSI_SR: demo data used for finetuning and laterally isotropic SR reconstruction
-- trained_meta_model: a pre-trained Meta-VSI-SR model ready for finetuning
-- meta_rcan: save the checkpoints and logs of a training model
+- OTF: the OTF of microscopy
+- data: dataset for training or finetuning
 - finetuned_model: a VSI-SR model after meta-finetuning
-- training_data_preparation_matlab: preprocessing for training data and finetuning data in matlab
+- meta_rcan: save the checkpoints and logs of a training model
 - model: python source files of VSI-SR network
+- trained_meta_model: a pre-trained Meta-VSI-SR model ready for finetuning
+- training_data_preparation_matlab: preprocessing for training data and finetuning data in matlab
 - utils: python source files of utils
 
 ### **Laterally isotropic SR reconstruction using VSI-SR models**
