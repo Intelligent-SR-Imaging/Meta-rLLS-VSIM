@@ -3,6 +3,10 @@ fine-tune a VSI-SR model
 Created on Tue Sep 30 19:31:36 2023
 @ Last Updated by Lin Yuhuan
 """
+"""
+FAQ:
+1. Run too more iteration when finetune will affection the model's performance.
+"""
 
 import os
 import sys
@@ -68,6 +72,7 @@ parser.add_argument("--lr_decay_step", type=list, default=[10, 20, 30])
 args = parser.parse_args()
 Source_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+#the class use to test and finetune
 class Test(object):
     def __init__(self, args):
         """Fine-tune a meta-VSI-SR model"""
@@ -96,11 +101,11 @@ class Test(object):
         self.batch_size = args.batch_size
         self.display_iter = args.print_step
         self.save_step = args.save_step
-
+        #set devices
         torch.cuda.set_device(args.cuda_num)
-
+         
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
+        # Create models
         self.generator = Generator(in_channel=args.in_channel, out_channel=args.out_channel, n_ResGroup=args.num_resgroup, n_RCAB=args.num_resblock)
         self.generator = self.generator.to(self.device)
         self.generator.load_state_dict(torch.load(self.model_path, map_location=self.device))
@@ -121,6 +126,8 @@ class Test(object):
 
         self.psnr_num = None
 
+
+    #run for finetune the meta-learning model
     def __call__(self):
         psnrs = []
         # test at iteration 0 (i.e. test before fine-tuning)
@@ -209,7 +216,8 @@ class Test(object):
             else:
                 outs1.append((outs[j - 1][2] + outs[j][1] + outs[j + 1][0]) / 3)
         return np.array(outs1)
-
+    
+    #test the model
     def test(self, image_input, image_gt, fs, step, mask_thresh=0.01):
         self.generator.eval()
         sr_out = []
@@ -242,8 +250,9 @@ class Test(object):
         sr_out = np.array(sr_out * 10000).astype('float32')
         tiff.imwrite(self.save_test_path + '/input' + '%.3d' % fs + '_iter' + '%.6d' % step + '.tif', sr_out)
 
-
+#build Tester
 Tester = Test(args)
+#Run Finetune with Tester
 Tester()
 
 
