@@ -3,6 +3,12 @@ use pretrained RL-DFN to reconstruct a whole 3D Image
 Created on Tue Sep 30 19:31:36 2023
 @ Last Updated by Lin Yuhuan
 """
+"""
+FAQ
+1. The psf file need match with the input image, or the model's performance will decrease.
+2. Make sure the psf direction is match with the view (A or B) when training.
+3. Make sure the crop's H,W,Z is smaller than the image's H,W,Z.
+"""
 import os
 import tifffile
 import tqdm
@@ -105,7 +111,7 @@ if __name__ == "__main__":
     theta = args.Rotate
     model.section_prepare(H=H, W=W, head=head, pixel_off=0,
                           theta_off=0, theta=theta)
-
+    #prepare the pretrained model
     model.load_checkpoint(checkpoints_root)
     print("load complete")
     model.set_eval()
@@ -117,13 +123,13 @@ if __name__ == "__main__":
 
     for index in tqdm.tqdm(range(file_len)):
 
-
+        #load images of two views
         view1_ = tifffile.imread(rot_view_1[index]).transpose(2, 1, 0).astype(np.float32)
         view2_ = tifffile.imread(rot_view_2[index]).transpose(2, 1, 0).astype(np.float32)
         z_off = args.patch_z_size-view1_.shape[2]
         print("Z direction padding size:",z_off)
 
-
+        #pad input images
         if z_off>=0:
             pad = view1_[:, :, :z_off] * 0
             view1_ = np.concatenate((view1_, pad), axis=-1)
@@ -135,7 +141,7 @@ if __name__ == "__main__":
         view1_ = padding(view1_)
         view2_ = padding(view2_)
 
-
+        #reconstruction
         xx = []
         for i in range(x_steps):
             yy = []
