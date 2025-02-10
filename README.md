@@ -77,9 +77,7 @@ The integrated pipeline of 3D isotropic reconstruction is developed to reconstru
 In this repository, we provide a raw rLLSM image stack of F-actin as a simple demo to help users go through the 3D isotropic reconstruction pipeline. Before you
 run the 3D isotropic reconstruction pipeline, you need construct right enviroment and load demo data at right location.
 
-<p align="center">
-<video src="./Video/prepare.mp4">
-</p>
+<video src="./Video/prepare.mp4" autoplay="true" controls="controls" width="800" ></video>
 
 ## **Step1: Background removal and Deskew**
 The raw rLLSM image stack is first preprocessed with a MATLAB script _./Workflow_of_Meta_rLLSM_VSIM_Recon/Step1_BackgroundRM_and_Deskew.m_ to remove epi-fluoresence and perform deskew. The key parameters that are needed to pay special attention here are shown below:
