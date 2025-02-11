@@ -77,7 +77,11 @@ The integrated pipeline of 3D isotropic reconstruction is developed to reconstru
 In this repository, we provide a raw rLLSM image stack of F-actin as a simple demo to help users go through the 3D isotropic reconstruction pipeline. Before you
 run the 3D isotropic reconstruction pipeline, you need construct right enviroment and load demo data at right location.
 
-![Perpare](./Video/prepare.gif)
+
+
+https://github.com/user-attachments/assets/17f733b5-c476-4d2f-89c7-5c5dce421193
+
+
 
 ## **Step1: Background removal and Deskew**
 The raw rLLSM image stack is first preprocessed with a MATLAB script _./Workflow_of_Meta_rLLSM_VSIM_Recon/Step1_BackgroundRM_and_Deskew.m_ to remove epi-fluoresence and perform deskew. The key parameters that are needed to pay special attention here are shown below:
@@ -91,7 +95,13 @@ Data_path='/Demo_Data_for_3D_IsoRecon/data/' #The path to raw_data
 Save_path='/Demo_Data_for_3D_IsoRecon/step1/' #The path to save
 ```
 Under the classification of __*celllabel*__ and __*channel*__, the stack has been removed epi-fluoresence and deskewed will be saved in _./Demo_Data_for_3D_IsoRecon/step1/Factin/488_ . 
-![Perpare](./Video/step1.gif)
+
+
+
+https://github.com/user-attachments/assets/7b922055-6d6b-4f74-9c3e-48ab67272945
+
+
+
 ## **Step2: Laterally isotropic SR reconstruction**
 After background removal and deskew, the image stack are then reconstructed into a laterally isotropic SR volume using the Meta-VSI-SR model (detailed in [here](#Meta-VSI-SR)). The codes of laterall isotropic reconstruction are arranged in folder _./Code_for_2D_IsoRecon_. To apply laterally isotropic SR reconstruction, run the following command:
 
@@ -102,7 +112,13 @@ python Workflow_of_Meta_rLLSM_VSIM_Recon/Step2_2D_Isotropic_Recon.py \
 --model_path="/Code_for_2D_IsoRecon/finetuned_model/Factin/F-actin.pth"
 ```
 After laterally isotropic SR reconstruction, the image stack is placed at _./Demo_Data_for_3D_IsoRecon/step2/recon/0001_, where _0001_ denotes the time point. The raw data and single direction SR data with 3 orientations (0, 60, 120 degrees) are stored in _./Demo_Data_for_3D_IsoRecon/step2/origin_rotation/_ and _./Demo_Data_for_3D_IsoRecon/step2/sr_rotation/_ respectively .
-![Perpare](./Video/step2.gif)
+
+
+
+https://github.com/user-attachments/assets/1f42ad42-d91e-471b-bf05-5da9d674b702
+
+
+
 ## **Step3: Rotation and registration**
 The stacks after laterall isotropic SR reconstruction are split into two views using a MATLAB script _./Workflow_of_Meta_rLLSM_VSIM_Recon/Step3_Rotation_and_Calibration.m_. The rotation process need the design angle between the detection objective and coverslip, which is 30.8 degrees in our setup. The key parameters that are needed to pay special attention here are shown below:
 
@@ -115,7 +131,13 @@ RotAngle_Y=30.8  #The design angle between the detection objective and coverslip
 ```
 Then, the dual-view splitting results are saved as two TIFF files in _./Demo_Data_for_3D_IsoRecon/step3_.
 If you want to get more accurate registration results, you can expand the rotation range of the image around the X axis and Y axis during registration by adjusting parameter __*Range_x_rot*__ and __*Range_y_rot*__.
-![Perpare](./Video/step3.gif)
+
+
+
+https://github.com/user-attachments/assets/78b5a8a2-714e-43b2-a2f1-d9f221898c6b
+
+
+
 ## **Step4: Dual-View Fusion**
 Till now, two complementary views with laterally istropic super resolution have been generated from the raw rLLSM data volume, which will be fused into a final isotropic SR volume with the RL-DFN model (detailed in [here](#RL-DFN)). The codes of dual-view fusion are placed at  _./Code_for_3D_IsoRecon_. To apply the RL-DFN to generate the final isotropic SR volume, run the following command:
 ```shell
@@ -126,7 +148,13 @@ python Workflow_of_Meta_rLLSM_VSIM_Recon/Step4_3D_Isotropic_Recon.py \
 ```
 
 Afterwards, the 3D near-isotropic reconstruction result will be saved in _/Demo_Data_for_3D_IsoRecon/step4_.
-![Perpare](./Video/step4.gif)
+
+
+
+https://github.com/user-attachments/assets/50c46ae5-e2e7-4ba2-9796-7d63d6f58e0d
+
+
+
 <br><br>
 <h1 id="Model">💡 Model Training and Testing</h1>
 
