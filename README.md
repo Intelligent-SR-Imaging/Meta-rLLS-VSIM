@@ -77,9 +77,30 @@ The integrated pipeline of 3D isotropic reconstruction is developed to reconstru
 In this repository, we provide a raw rLLSM image stack of F-actin as a simple demo to help users go through the 3D isotropic reconstruction pipeline.
 ## **Prepare:Demo-Data and Pretrained-Model**
 Before you run the 3D isotropic reconstruction pipeline, you need construct right enviroment and load demo data at right location.We have provided __Demo Data__ and __Pretrained Model__ at [Zenodo](https://zenodo.org/records/14322457).
-You need load __Demo_Data_for_3D_IsoRecon.zip__ and __Pretrained_Model_RL_DFN.zip__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.14322457). Then please save files in Demo_Data_for_3D_IsoRecon.zip under _./_
-
-
+You need load __Demo_Data_for_3D_IsoRecon.zip__ and __Pretrained_Model_RL_DFN.zip__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.14322457). Then please save files in __Demo_Data_for_3D_IsoRecon.zip__ under _./Demo_Data_for_3D_IsoRecon/_ as below:
+```text
+｜-- Meta-rLLS-VSIM
+          ｜-- Demo_Data_for_3D_IsoRecon
+                    | -- data
+                              | -- F-actin
+                                        | -- rLLSM_488_Cyc1_Ch1_St5.mrc
+                    | -- step1
+                    | -- step2
+                    | -- step3
+                    | -- step4
+```
+And please save files in __Pretrained_Model_RL_DFN.zip__ under _./Code_for_3D_IsoRecon/pretrined_model/_ as below:
+```text
+｜-- Meta-rLLS-VSIM
+          ｜-- Code_for_3D_IsoRecon
+                    | -- pretrined_model
+                              | -- Factin
+                                        | -- net_FA.pth
+                                        | -- net_FB.pth
+                                        | -- net_G.pth
+                                        | -- netD_A.pth
+                                        | -- netD_B.pth
+```
 
 https://github.com/user-attachments/assets/17f733b5-c476-4d2f-89c7-5c5dce421193
 
