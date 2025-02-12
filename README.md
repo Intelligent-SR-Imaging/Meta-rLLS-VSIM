@@ -1,25 +1,14 @@
 # **Meta-rLLSM-VSIM: Meta Learning-Empowered Reflective Lattice Light-Sheet Virtual Structured Illumination Microscopy**
 This is a repository of the source codes for paper [*Fast adaptive super-resolution lattice light-sheet microscopy for rapid, long-term, near-isotropic subcellular imaging*](https://www.biorxiv.org/content/10.1101/2024.05.09.593386v2).
-
-
+In this paper, we present the meta learning-empowered reflective lattice light-sheet virtual structured illumination microscopy (Meta-rLLS-VSIM), which instantly upgrades LLSM to a near-isotropic super resolution of ∼120-nm laterally and ~160-nm axially, more than twofold improvement in each dimension, without any modification of the optical system or sacrifice of other imaging metrics. We provide here the tutorial of the implementation of Meta-rLLSM-VSIM, including the environment configuration and the overall pipeline of Meta-rLLSM-VSIM reconstruction.
 
 <!-- TOC -->
-* ✨ [Method](#Method-Overview)
 * ⚙️ [Environment](#Environment)
 * 📦 [Demo Data&Pretrained Model](#Demo-Data&Pretrained-Model)
 * 🔰 [Pipeline](#Pipeline)
 * 💡 [Model](#Model)
 * 📊  [Results](#Results)
 <!-- TOC -->
-
-<br><br>
-<h1 id="Method-Overview">✨ Method Overview</h1>
-
-In this paper, we present the meta learning-empowered reflective lattice light-sheet virtual structured illumination microscopy (Meta-rLLS-VSIM), which instantly upgrades LLSM to a near-isotropic super resolution of ∼120-nm laterally and ~160-nm axially, more than twofold improvement in each dimension, without any modification of the optical system or sacrifice of other imaging metrics. We provide here the tutorial of the implementation of Meta-rLLSM-VSIM, including the environment configuration and the overall pipeline of Meta-rLLSM-VSIM reconstruction.
-
-<p align="center">
-<img src="./Figs/Fig1.jpg" width='800'>
-</p>
 
 
 <br><br>
