@@ -75,7 +75,7 @@ The integrated pipeline of 3D isotropic reconstruction is developed to reconstru
 </p>
 
 In this repository, we provide a raw rLLSM image stack of F-actin as a simple demo to help users go through the 3D isotropic reconstruction pipeline.
-## **Prepare:Demo-Data and Pretrained-Model**
+## **Prepare: Demo-Data and Pretrained-Model**
 Before you run the 3D isotropic reconstruction pipeline, you need construct right enviroment and load demo data at right location.We have provided __Demo Data__ and __Pretrained Model__ at [Zenodo](https://zenodo.org/records/14322457).
 You need load __Demo_Data_for_3D_IsoRecon.zip__ and __Pretrained_Model_RL_DFN.zip__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.14322457). Then please save files in __Demo_Data_for_3D_IsoRecon.zip__ under _./Demo_Data_for_3D_IsoRecon/_ as below:
 ```text
@@ -293,7 +293,7 @@ python  Code_for_2D_IsoRecon/Train_meta_VSI_SR.py  \
 If you have multiple GPU devices, you can accelerate meta training with _/Code_for_2D_IsoRecon/Train_Meta_VSI_SR_DDP_version.py_, which is the data distributed parallel (DDP) version of meta-training. The well-trained meta-model will be saved in _./Code_for_2D_IsoRecon/meta_rcan_.
 <br><br><br>
 
-<h1 id="RL-DFN">3D Isotropic Reconstruction via RL-DFN</h1>
+<h2 id="RL-DFN">3D Isotropic Reconstruction via RL-DFN</h2>
 
 We devised a self-supervised dual-view fusion algorithm, dubbed Richardson-Lucy dual-cycle fusion network (RL-DFN) that incorporated the multi-view Richardson-Lucy (RL) iteration and deterministic point spread function (PSF) priors into the network architecture and loss design. The RL-DFN is used to fuse two data views captured by the rLLSM system (before or after processed by the VSI-SR model) with comlementary resolution into an isotropic data volume. The network architecture of RL-DFN is shown in Fig. 3.
 
