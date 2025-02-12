@@ -214,6 +214,23 @@ Folder structure of the _./Code_for_2D_IsoRecon_ are shown and explained below:
 - training_data_preparation_matlab: preprocessing for training data and finetuning data in matlab
 - utils: python source files of utils
 
+### **Demodata Prepa**
+Before you run the demo Case in our source code of VSI-SR model, you need construct right enviroment and load demo data at right location. We have provided __Demo Data__ of VSI-SR at [Zenodo](https://zenodo.org/records/14322457).
+You need load __Demo_Data_for_VSI_SR.zip__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.14322457). Then please save files in __Demo_Data_for_VSI_SR.zip__ under _./Code_for_2D_IsoRecon/Demo_Data_for_VSI_SR/_ as below:
+```text
+｜-- Meta-rLLS-VSIM
+          ｜-- Code_for_2D_IsoRecon
+                    | -- Lattice-SIM
+                              | -- 08_CCPs_20210610-SUM-clathrin-mEmerald-KI
+                                        | -- cell24_20210610_213743
+                                        | -- cell25_20210610_214425
+                                        | -- cell26_20210610_215441
+                              | -- 16_F-actin_20210118-0121-hela-lifeact
+                                        | -- cell24-488_20210118_201724
+                                        | -- cell25-488_20210118_202347
+                                        | -- cell26-488_20210118_203726
+```
+
 ### **Laterally isotropic SR reconstruction using VSI-SR models**
 Given a well-trained or a finetuned (from the Meta-VSI-SR model) VSI-SR model, a diffraction-limited LLSM image stack can be instantly reconstructed into a laterally isotropic SR counterpart following the inference procedure shown in Fig. 2b.
 Here we provide a VSI-SR model finetuned with F-actin data from the Meta-VSI-SR model as well as an assortative python script to perform the laterally isotropic SR reconstruction for a LLSM F-actin data, which can be executed by:
@@ -310,6 +327,24 @@ Codes of RL-DFN are contained in _./Code_for_3D_IsoRecon_. Its structure is show
 - pretrained_model:the model pretrained for 3D isotropic reconstruction
 - train_RL_DFN: model's logs, checkpoints and visualization results during training
 - utils: python source files of utils
+
+### **Demodata Prepa**
+Before you run the demo Case in our source code of RL-DFN model, you need construct right enviroment and load demo data at right location. We have provided __Demo Data__ of RL-DFN at [Zenodo](https://zenodo.org/records/14322457).
+You need load __Demo_Data_for_RL_DFN.zip__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.14322457). Then please save files in __Demo_Data_for_RL_DFN.zip__ under _./Code_for_3D_IsoRecon/data/_ as below:
+```text
+｜-- Meta-rLLS-VSIM
+          ｜-- Code_for_3D_IsoRecon
+                    | -- data
+                              | -- TrainData
+                                        | -- Factin
+                                                  | -- ViewA
+                                                  | -- ViewB
+                              | -- TestData
+                                        | -- Factin
+                                                  | -- ViewA
+                                                  | -- ViewB
+                              | -- result                        
+```
 
 ### **Testing**
 We provide a pre-trained RL-DFN model trained with F-actin dataset for a simple demo, which is placed at _./pretrained_model/F-actin_. You can test this pre-traiend RL-DFN model following these steps:
