@@ -150,7 +150,7 @@ https://github.com/user-attachments/assets/50c46ae5-e2e7-4ba2-9796-7d63d6f58e0d
 
 There are two deep learning model in the process of 3D isotropic reconstruction. One is the meta-learning empowered virtual structured illumination super-resolution ([Meta-VSI-SR](#Meta-VSI-SR)) model which can realize isotropic super-resolution reconstruction in lateral. The other is the dubbed Richardson-Lucy dual-cycle fusion network ([RL-DFN](#RL-DFN)) which fuses two data views captured by the rLLSM system (before or after processed by the VSI-SR model) with comlementary resolution into an isotropic data volume.
 
-We provide here the tutorial of the implementation of Meta-VSI-SR and RL-DFN, you can follow the instructions to run the training, finetune and testing demo code.
+We provide here the tutorial of the implementation of Meta-VSI-SR and RL-DFN, you can follow the instructions to run the training, finetune and testing demo code. When you run our demo code, please make sure all operations are based on the root of the downloaded folder. 
 
 <!-- TOC -->
 * [2D Isotropic Reconstruction via Meta-VSI-SR](#Meta-VSI-SR)
@@ -166,7 +166,7 @@ The meta-learning empowered virtual structured illumination super-resolution (Me
 <img src="./Figs/Fig2.jpg" width='800'>
 </p>
 
-It is noteworthy that the meta-training scheme endows the Meta-LLS-VSIM and VSI-SR model with a fast adaptation capability when applied on an unseen biological specimen, because the Meta-VSI-SR model is able to adapt to a new specimen within a few training iterations on a small sort of training data. Once the specimen-specific model has been finetuned, it can be applied on other data of the same biologcial structure. Codes of meta-training, meta-finetuning, and inference with the Meta-VSI-SR model are contained in _./Code_for_2D_IsoRecon_.
+It is noteworthy that the meta-training scheme endows the Meta-LLS-VSIM and VSI-SR model with a fast adaptation capability when applied on an unseen biological specimen, because the Meta-VSI-SR model is able to adapt to a new specimen within a few training iterations on a small sort of training data. Once the specimen-specific model has been finetuned, it can be applied on other data of the same biologcial structure. Codes of meta-training, meta-finetuning, and inference with the Meta-VSI-SR model are contained in _./Code_for_2D_IsoRecon_. 
 
 ### **Folder Structure**
 Folder structure of the _./Code_for_2D_IsoRecon_ are shown and explained below:
