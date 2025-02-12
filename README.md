@@ -74,8 +74,10 @@ The integrated pipeline of 3D isotropic reconstruction is developed to reconstru
 <img src="./Figs/Fig1.jpg" width='800'>
 </p>
 
-In this repository, we provide a raw rLLSM image stack of F-actin as a simple demo to help users go through the 3D isotropic reconstruction pipeline. Before you
-run the 3D isotropic reconstruction pipeline, you need construct right enviroment and load demo data at right location.
+In this repository, we provide a raw rLLSM image stack of F-actin as a simple demo to help users go through the 3D isotropic reconstruction pipeline.
+## **Prepare:Demo-Data and Pretrained-Model**
+Before you run the 3D isotropic reconstruction pipeline, you need construct right enviroment and load demo data at right location.We have provided __Demo Data__ and __Pretrained Model__ at [Zenodo](https://zenodo.org/records/14322457).
+You need load __Demo_Data_for_3D_IsoRecon.zip__ and __Pretrained_Model_RL_DFN.zip__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.14322457). Then please save files in Demo_Data_for_3D_IsoRecon.zip under _./_
 
 
 
