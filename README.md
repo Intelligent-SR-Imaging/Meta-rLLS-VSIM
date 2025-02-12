@@ -4,7 +4,6 @@ In this paper, we present the meta learning-empowered reflective lattice light-s
 
 <!-- TOC -->
 * ⚙️ [Environment](#Environment)
-* 📦 [Demo Data&Pretrained Model](#Demo-Data&Pretrained-Model)
 * 🔰 [Pipeline](#Pipeline)
 * 💡 [Model](#Model)
 * 📊  [Results](#Results)
@@ -33,27 +32,6 @@ pip install -r ./requirements.txt
 
 If you want to run the cource codes constructed by MATLAB, please use the MATLAB(version > 2017b) with Image Processing Toolbox.
 
-
-<br><br>
-<h1 id="Demo-Data&Pretrained-Model">📦 Demo Data&Pretrained Model</h1>
-
-We have provided __Demo Data__ and __Pretrained Model__ at [Zenodo](https://zenodo.org/records/14322457). You can load __Demo Data__ and __Pretrained Model__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.14322457) and save them follow the notes.
-```
-When you unzip the zip file, please make sure there is not an additional but unnecessary folder which is the same as the name of the zip file.
-a. Demo_Data_for_VSI_SR.zip
-If you want to run the Demo Case in our source code of VSI-SR model, please load this dataset and save it under ./Code_for_2D_IsoRecon/Demo_Data_for_VSI_SR.
-
-b.  Demo_Data_for_RL_DFN.zip
-If you want to run the Demo Case in our source code of RL-DFN model, please load this dataset and save it under ./Code_for_3D_IsoRecon/data.
-
-c. Demo_Data_for_3D_IsoRecon.zip
-If you want to run the Demo Case in our source code of 3D IsoRecon pipeline model, please load this dataset and save it under ./Demo_Data_for_3D_IsoRecon.
-
-d. Pretrained_Model_RL_DFN.zip
-If you want to run the Demo Case in our source code of RL-DFN model, please load this dataset and save it under ./Code_for_3D_IsoRecon/pretrained_model.
-```
-We also provide dataset,BioSR of LLS-SIM, at [Zenodo](https://zenodo.org/records/14322457) for meta-training of VSI-SR. When you run our demo code, please make sure all operations are based on the root of the downloaded folder. 
-
 <br><br>
 <h1 id="Pipeline">🔰 Pipeline of 3D Isotropic Reconstruction</h1>
 
@@ -63,7 +41,7 @@ The integrated pipeline of 3D isotropic reconstruction is developed to reconstru
 <img src="./Figs/Fig1.jpg" width='800'>
 </p>
 
-In this repository, we provide a raw rLLSM image stack of F-actin as a simple demo to help users go through the 3D isotropic reconstruction pipeline.
+In this repository, we provide a raw rLLSM image stack of F-actin as a simple demo to help users go through the 3D isotropic reconstruction pipeline. When you run our demo code, please make sure all operations are based on the root of the downloaded folder. 
 ## **Prepare: Demo-Data and Pretrained-Model**
 Before you run the 3D isotropic reconstruction pipeline, you need construct right enviroment and load demo data at right location.We have provided __Demo Data__ and __Pretrained Model__ at [Zenodo](https://zenodo.org/records/14322457).
 You need load __Demo_Data_for_3D_IsoRecon.zip__ and __Pretrained_Model_RL_DFN.zip__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.14322457). Then please save files in __Demo_Data_for_3D_IsoRecon.zip__ under _./Demo_Data_for_3D_IsoRecon/_ as below:
