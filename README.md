@@ -183,7 +183,7 @@ Folder structure of the _./Code_for_2D_IsoRecon_ are shown and explained below:
 - training_data_preparation_matlab: preprocessing for training data and finetuning data in matlab
 - utils: python source files of utils
 
-### **Demodata Prepa**
+### **Demodata Preparation**
 Before you run the demo Case in our source code of VSI-SR model, you need construct right enviroment and load demo data at right location. We have provided __Demo Data__ of VSI-SR at [Zenodo](https://zenodo.org/records/14322457).
 You need load __Demo_Data_for_VSI_SR.zip__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.14322457). Then please save files in __Demo_Data_for_VSI_SR.zip__ under _./Code_for_2D_IsoRecon/Demo_Data_for_VSI_SR/_ as below:
 ```text
@@ -297,7 +297,7 @@ Codes of RL-DFN are contained in _./Code_for_3D_IsoRecon_. Its structure is show
 - train_RL_DFN: model's logs, checkpoints and visualization results during training
 - utils: python source files of utils
 
-### **Demodata Prepa**
+### **Demodata Preparation**
 Before you run the demo Case in our source code of RL-DFN model, you need construct right enviroment and load demo data at right location. We have provided __Demo Data__ of RL-DFN at [Zenodo](https://zenodo.org/records/14322457).
 You need load __Demo_Data_for_RL_DFN.zip__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.14322457). Then please save files in __Demo_Data_for_RL_DFN.zip__ under _./Code_for_3D_IsoRecon/data/_ as below:
 ```text
@@ -382,8 +382,9 @@ You select specific type of biological specimen by setting the parameter __*Stru
 
 <br><br>
 <h1 id="FQA">❔ Frequent Question Answer</h1>
+### Q1: Why does the program report an ERROR where the file cannot be found like *"FileNotFoundError: [Errno 2] No such file or directory:"xxxxx"*
 
-Q1: Why does the program report an ERROR where the file cannot be found like *"FileNotFoundError: [Errno 2] No such file or directory:"xxxxx"*
+This issue occurs when some files are missing or saved in the wrong location. First, check whether you have downloaded the demo data and pretrained model from our Zenodo repository. Next, verify that the demo data and pretrained model are saved in the correct location. We have specified the root path requirement and the file structure after extraction in the __Demodata Preparation__ and __Prepare: Demo-Data and Pretrained-Model__ sections. If you are running the VSI-SR demo code, check whether any OTF files are missing. If you are running the RL-DFN demo code, check whether the PSF files for both views are missing.
 
 <br><br>
 <h1 id="Results">📊  Results</h1>
