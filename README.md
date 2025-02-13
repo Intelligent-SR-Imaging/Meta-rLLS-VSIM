@@ -387,6 +387,10 @@ You select specific type of biological specimen by setting the parameter __*Stru
 
 This issue occurs when some files are missing or saved in the wrong location. First, check whether you have downloaded the demo data and pretrained model from our Zenodo repository. Next, verify that the demo data and pretrained model are saved in the correct location. We have specified the root path requirement and the file structure after extraction in the __Demodata Preparation__ and __Prepare: Demo-Data and Pretrained-Model__ sections. If you are running the VSI-SR demo code, check whether any OTF files are missing. If you are running the RL-DFN demo code, check whether the PSF files for both views are missing.
 
+### Q2: Why the learn loss(cycle loss and discriminative loss) of the RL-DFN doesn't decrease during training?
+
+This issue often arises when the PSFs used for training RL-DFN have problems. Please verify whether the PSF provided to the model matches the actual imaging conditions of the microscope. If the difference between them is too great, model training may not proceed correctly. Second, ensure that the PSF orientation aligns with the degradation direction of the WF input. The RL-DFN requires two WF images from different views as input, so ensure that the PSF orientations for both views are correct.
+
 <br><br>
 <h1 id="Results">📊  Results</h1>
 
