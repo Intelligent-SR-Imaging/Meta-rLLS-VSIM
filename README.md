@@ -54,13 +54,16 @@ Set the data path for raw LLSM images and specify the save location for deskewed
 # Set the base data root and save root
 Data_path = '/Code_for_2D_IsoRecon/DemoData_for_VSI_SR_Finetune/Lattice-SIM/16_F-actin_20210118-0121-hela-lifeact/cell25-488_20210118_201724'
 Save_path = '/Code_for_2D_IsoRecon/data/recon_result/Factin'
+
 # Set the data path for raw LLSM images and specify the save location for deskewed LLSM images
 Source_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 deskew_path = Source_path+Save_path + '/LLSM_deskew'
 if not os.path.exists(deskew_path):
     os.makedirs(deskew_path)
+
 # Preprocess the raw LLSM images
 preprocess_LLSM(Source_path+Data_path, deskew_path)
+
 # Set raw LLSM images after preprocess as input data
 data_path = deskew_path
 files = np.sort(os.listdir(data_path))
