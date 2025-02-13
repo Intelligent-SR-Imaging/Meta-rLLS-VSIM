@@ -37,7 +37,21 @@ If you want to run the cource codes constructed by MATLAB, please use the MATLAB
 <br><br>
 <h1 id="Start">✅ Quick Start</h1>
 
-To help you quickly experience our model's effects, we provide here the tutorial of testing of VSI-SR step by step. Before you follow this tutorial, please construct [right enviroment](#Environment) and load VSI-SR demo data at right location.
+To help you quickly understand our model's effects, we provide a step-by-step tutorial for testing VSI-SR. Before following this tutorial, set up the correct environment and load the VSI-SR demo data in the appropriate location.
+
+First, import the necessary packages for the VSI-SR testing process.
+```python
+
+```
+Set the data path for raw LLSM images and specify the save location for deskewed images in `LLSM_deskew`. Then, run the `preprocess_LLSM` function to preprocess the raw LLSM images.
+
+Build the VSI-SR model and reload the pre-trained model.
+
+Set the save path for raw data, single-direction SR data with three orientations (0°, 60°, 120°), and reconstruction results.
+
+Finally, we use the VSI-SR model to perform reconstruction.
+
+We provide interactive Jupyter notebooks (`./quick_start`) that guide you through the process step by step with real data examples.
 
 <br><br>
 <h1 id="Pipeline">🔰 Pipeline of 3D Isotropic Reconstruction</h1>
