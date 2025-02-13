@@ -68,9 +68,19 @@ preprocess_LLSM(Source_path+Data_path, deskew_path)
 data_path = deskew_path
 files = np.sort(os.listdir(data_path))
 ```
+
 Build the VSI-SR model and reload the pre-trained model.
 ```python
+# build the VSI-SR model
+generator = Generator(in_channel=7, n_ResGroup=4, n_RCAB=4, out_channel=3)
 
+# loading single direction SR model
+model_path = Source_path+args.model_path
+generator.load_state_dict(torch.load(model_path))
+
+#set device
+torch.cuda.set_device(0)
+device = torch.device('cuda')
 ```
 Set the save path for raw data, single-direction SR data with three orientations (0°, 60°, 120°), and reconstruction results.
 ```python
