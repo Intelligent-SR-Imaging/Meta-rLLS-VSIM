@@ -377,6 +377,14 @@ python Code_for_3D_IsoRecon/train_RL_DFN.py \
 
 You select specific type of biological specimen by setting the parameter __*Struct*__. The well-trained Rl-DFN model will be saved in _./Code_for_3D_IsoRecon/train_RL_DFN_.
 
+
+
+
+<br><br>
+<h1 id="FQA">❔ Frequent Question Answer</h1>
+
+Q1: Why does the program report an ERROR where the file cannot be found like *"FileNotFoundError: [Errno 2] No such file or directory:"xxxxx"*
+
 <br><br>
 <h1 id="Results">📊  Results</h1>
 
