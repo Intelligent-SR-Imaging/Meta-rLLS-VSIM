@@ -82,9 +82,21 @@ generator.load_state_dict(torch.load(model_path))
 torch.cuda.set_device(0)
 device = torch.device('cuda')
 ```
-Set the save path for raw data, single-direction SR data with three orientations (0°, 60°, 120°), and reconstruction results.
+Set the save path for raw data, single-direction SR data with three orientations (0°, 60°, 120°), and reconstruction results. Set the OTF file path.
 ```python
+# save path of raw data
+WF_rotation_path = Source_path+args.Save_path + '/origin_rotation'
+save_path1 = WF_rotation_path
 
+# save path of single direction SR data with 3 orientations (0, 60, 120 degrees)
+SR_rotation_path = Source_path+args.Save_path + '/finetune_rotation'
+save_path2 = SR_rotation_path
+
+# save path of reconstruction results
+save_path = Source_path+args.Save_path + '/reconstruction'
+
+# Set the OTF file path.
+otf_path = Source_path+args.otf_path
 ```
 Finally, we use the VSI-SR model to perform reconstruction.
 ```python
