@@ -75,7 +75,7 @@ Build the VSI-SR model and reload the pre-trained model.
 generator = Generator(in_channel=7, n_ResGroup=4, n_RCAB=4, out_channel=3)
 
 # loading single direction SR model
-model_path = Source_path+args.model_path
+model_path = Source_path+'/Code_for_2D_IsoRecon/finetuned_model/F-actin.pth'
 generator.load_state_dict(torch.load(model_path))
 
 #set device
