@@ -85,22 +85,39 @@ device = torch.device('cuda')
 Set the save path for raw data, single-direction SR data with three orientations (0°, 60°, 120°), and reconstruction results. Set the OTF file path.
 ```python
 # save path of raw data
-WF_rotation_path = Source_path+args.Save_path + '/origin_rotation'
+WF_rotation_path = Source_path+Save_path + '/origin_rotation'
 save_path1 = WF_rotation_path
 
 # save path of single direction SR data with 3 orientations (0, 60, 120 degrees)
-SR_rotation_path = Source_path+args.Save_path + '/finetune_rotation'
+SR_rotation_path = Source_path+Save_path + '/finetune_rotation'
 save_path2 = SR_rotation_path
 
 # save path of reconstruction results
-save_path = Source_path+args.Save_path + '/reconstruction'
+save_path = Source_path+Save_path + '/reconstruction'
 
 # Set the OTF file path.
-otf_path = Source_path+args.otf_path
+otf_path = '/Code_for_2D_IsoRecon/OTF/'
+otf_path = Source_path+otf_path
 ```
 Finally, we use the VSI-SR model to perform reconstruction.
 ```python
+tp = 1
+tp1 = 0
 
+for fs in files:
+    tp1 += 1
+
+    fs = data_path + '/' + fs
+    # infer single direction SR images with 3 orientations
+    Nz = rotation(fs, generator, device, save_path1, save_path2, tp)
+
+    # save path of reconstruction images
+    save_path5 = save_path + '/' + '%.4d/' % tp1
+    if not os.path.exists(save_path5):
+        os.makedirs(save_path5)
+
+    # reconstruction
+    isotropic_recon(otf_path, save_path5, param)
 ```
 We provide interactive Jupyter notebooks (`./quick_start`) that guide you through the process step by step with real data examples.
 
