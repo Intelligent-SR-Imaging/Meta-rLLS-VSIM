@@ -119,7 +119,7 @@ for fs in files:
     # reconstruction
     isotropic_recon(otf_path, save_path5, param)
 ```
-We provide interactive Jupyter notebooks (`./quick_start`) that guide you through the process step by step with real data examples.
+We provide interactive Jupyter notebooks (`./Quick_Start.ipynb`) that guide you through the process step by step with real data examples.
 
 <br><br>
 <h1 id="Pipeline">🔰 Pipeline of 3D Isotropic Reconstruction</h1>
