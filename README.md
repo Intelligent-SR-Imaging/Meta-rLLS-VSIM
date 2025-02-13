@@ -41,16 +41,42 @@ To help you quickly understand our model's effects, we provide a step-by-step tu
 
 First, import the necessary packages for the VSI-SR testing process.
 ```python
+import numpy as np
+import os
+import sys
+import torch
+from model.meta_SR_2D_GAN import Generator
+from Code_for_2D_IsoRecon.utils.fun_recon import isotropic_recon, rotation
+from Code_for_2D_IsoRecon.utils.utils import preprocess_LLSM
+```
+Set the data path for raw LLSM images and specify the save location for deskewed LLSM images. Then, run the `preprocess_LLSM` function to preprocess the raw LLSM images.
+```python
+# Set the base data root and save root
+Data_path = '/Code_for_2D_IsoRecon/DemoData_for_VSI_SR_Finetune/Lattice-SIM/16_F-actin_20210118-0121-hela-lifeact/cell25-488_20210118_201724'
+Save_path = '/Code_for_2D_IsoRecon/data/recon_result/Factin'
+# Set the data path for raw LLSM images and specify the save location for deskewed LLSM images
+Source_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+deskew_path = Source_path+Save_path + '/LLSM_deskew'
+if not os.path.exists(deskew_path):
+    os.makedirs(deskew_path)
+# Preprocess the raw LLSM images
+preprocess_LLSM(Source_path+Data_path, deskew_path)
+# Set raw LLSM images after preprocess as input data
+data_path = deskew_path
+files = np.sort(os.listdir(data_path))
+```
+Build the VSI-SR model and reload the pre-trained model.
+```python
 
 ```
-Set the data path for raw LLSM images and specify the save location for deskewed images in `LLSM_deskew`. Then, run the `preprocess_LLSM` function to preprocess the raw LLSM images.
-
-Build the VSI-SR model and reload the pre-trained model.
-
 Set the save path for raw data, single-direction SR data with three orientations (0°, 60°, 120°), and reconstruction results.
+```python
 
+```
 Finally, we use the VSI-SR model to perform reconstruction.
+```python
 
+```
 We provide interactive Jupyter notebooks (`./quick_start`) that guide you through the process step by step with real data examples.
 
 <br><br>
