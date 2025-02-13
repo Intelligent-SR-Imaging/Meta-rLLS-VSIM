@@ -35,6 +35,11 @@ pip install -r ./requirements.txt
 If you want to run the cource codes constructed by MATLAB, please use the MATLAB(version > 2017b) with Image Processing Toolbox.
 
 <br><br>
+<h1 id="Start">✅ Quick Start</h1>
+
+To help you quickly experience our model's effects, we provide here the tutorial of testing of VSI-SR step by step. Before you follow this tutorial, please construct [right enviroment](#Environment) and load VSI-SR demo data at right location.
+
+<br><br>
 <h1 id="Pipeline">🔰 Pipeline of 3D Isotropic Reconstruction</h1>
 
 The integrated pipeline of 3D isotropic reconstruction is developed to reconstruct a near-isotropic SR image stack from the corresponding reflective lattice light-sheet microscopy (rLLSM) acquisitions, which consists of four major steps: (1) Apply a two-step background removal algorithm and deskew the stack into the deskewed view to preserve the spatial continuity of the sample structure; (2) The deskewed stack is sent to the Meta-VSI-SR model for laterally isotropic SR reconstruction; (3) The stack after 2D isotropic SR reconstruction is split into dual views by rotation and registration; and (4) finally, the registered dual-view stacks are fused via the proposed RL-DFN. The schematic workflow of Meta-rLLSM-VSIM is shown below.
