@@ -382,6 +382,7 @@ You select specific type of biological specimen by setting the parameter __*Stru
 
 <br><br>
 <h1 id="FQA">❔ Frequent Question Answer</h1>
+
 ### Q1: Why does the program report an ERROR where the file cannot be found like *"FileNotFoundError: [Errno 2] No such file or directory:"xxxxx"*
 
 This issue occurs when some files are missing or saved in the wrong location. First, check whether you have downloaded the demo data and pretrained model from our Zenodo repository. Next, verify that the demo data and pretrained model are saved in the correct location. We have specified the root path requirement and the file structure after extraction in the __Demodata Preparation__ and __Prepare: Demo-Data and Pretrained-Model__ sections. If you are running the VSI-SR demo code, check whether any OTF files are missing. If you are running the RL-DFN demo code, check whether the PSF files for both views are missing.
