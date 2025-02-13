@@ -4,7 +4,7 @@ In this paper, we present the meta learning-empowered reflective lattice light-s
 
 <!-- TOC -->
 * ⚙️ [Environment](#Environment)
-* ▶️ [Quick Start](#Start)
+* ✅ [Quick Start](#Start)
 * 🔰 [Pipeline](#Pipeline)
 * 💡 [Model](#Model)
 * ❔ [Frequent Question Answer](#FQA)
