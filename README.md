@@ -58,8 +58,6 @@ Save_path = '/Code_for_2D_IsoRecon/data/recon_result/Factin'
 # Set the data path for raw LLSM images and specify the save location for deskewed LLSM images
 Source_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 deskew_path = Source_path+Save_path + '/LLSM_deskew'
-if not os.path.exists(deskew_path):
-    os.makedirs(deskew_path)
 
 # Preprocess the raw LLSM images
 preprocess_LLSM(Source_path+Data_path, deskew_path)
@@ -77,10 +75,6 @@ generator = Generator(in_channel=7, n_ResGroup=4, n_RCAB=4, out_channel=3)
 # loading single direction SR model
 model_path = Source_path+'/Code_for_2D_IsoRecon/finetuned_model/F-actin.pth'
 generator.load_state_dict(torch.load(model_path))
-
-#set device
-torch.cuda.set_device(0)
-device = torch.device('cuda')
 ```
 Set the save path for raw data, single-direction SR data with three orientations (0°, 60°, 120°), and reconstruction results. Set the OTF file path.
 ```python
@@ -101,20 +95,15 @@ otf_path = Source_path+otf_path
 ```
 Finally, we use the VSI-SR model to perform reconstruction.
 ```python
-tp = 1
-tp1 = 0
-
-for fs in files:
-    tp1 += 1
-
+for tp1,fs in enumerate(files):
+    #get input image path
     fs = data_path + '/' + fs
+
     # infer single direction SR images with 3 orientations
-    Nz = rotation(fs, generator, device, save_path1, save_path2, tp)
+    Nz = rotation(fs, generator, device, save_path1, save_path2, 1)
 
     # save path of reconstruction images
     save_path5 = save_path + '/' + '%.4d/' % tp1
-    if not os.path.exists(save_path5):
-        os.makedirs(save_path5)
 
     # reconstruction
     isotropic_recon(otf_path, save_path5, param)
