@@ -437,7 +437,7 @@ This issue often arises when the PSFs used for training RL-DFN have problems. Pl
 
 ### Q3: Why the the program report an ERROR when training a new meta-VSI-SR model on two task?
 
-Since VSI-SR is trained using MAML's meta-training method, the minimum `meta_batch_size` is 3, requiring at least three additional tasks. To adjust *`meta_batch_size`*, include *`--meta_batch_size your_meta_batch_size`* in the training command.
+Since VSI-SR is trained using MAML's meta-training method, the minimum `meta_batch_size` is 3, requiring at least three tasks. To adjust *`meta_batch_size`*, include *`--meta_batch_size your_meta_batch_size`* in the training command.
 
 <br><br>
 <h1 id="Results">📊  Results</h1>
