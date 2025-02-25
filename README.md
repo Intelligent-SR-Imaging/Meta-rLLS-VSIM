@@ -89,8 +89,8 @@ The integrated pipeline of 3D isotropic reconstruction is developed to reconstru
 
 In this repository, we provide a raw rLLSM image stack of F-actin as a simple demo to help users go through the 3D isotropic reconstruction pipeline. When you run our demo code, please make sure all operations are based on the root of the downloaded folder. 
 ## **Prepare: Demo-Data and Pretrained-Model**
-Before you run the 3D isotropic reconstruction pipeline, you need construct right enviroment and load demo data at right location.We have provided __Demo Data__ and __Pretrained Model__ at [Zenodo](https://zenodo.org/records/14322457).
-You need load __Demo_Data_for_3D_IsoRecon.zip__ and __Pretrained_Model_RL_DFN.zip__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.14322457). Then please save files in __Demo_Data_for_3D_IsoRecon.zip__ under _./Demo_Data_for_3D_IsoRecon/_ as below:
+Before you run the 3D isotropic reconstruction pipeline, you need construct right enviroment and load demo data at right location.We have provided __Demo Data__ and __Pretrained Model__ at [Zenodo](https://doi.org/10.5281/zenodo.14322456).
+You need load __Demo_Data_for_3D_IsoRecon.zip__ and __Pretrained_Model_RL_DFN.zip__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.14322456). Then please save files in __Demo_Data_for_3D_IsoRecon.zip__ under _./Demo_Data_for_3D_IsoRecon/_ as below:
 ```text
 ｜-- Meta-rLLS-VSIM
           ｜-- Demo_Data_for_3D_IsoRecon
@@ -228,8 +228,8 @@ Folder structure of the _./Code_for_2D_IsoRecon_ are shown and explained below:
 - utils: python source files of utils
 
 ### **Demodata Preparation**
-Before you run the demo Case in our source code of VSI-SR model, you need construct right enviroment and load demo data at right location. We have provided __Demo Data__ of VSI-SR at [Zenodo](https://zenodo.org/records/14322457).
-You need load __Demo_Data_for_VSI_SR.zip__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.14322457). Then please save files in __Demo_Data_for_VSI_SR.zip__ under _./Code_for_2D_IsoRecon/Demo_Data_for_VSI_SR/_ as below:
+Before you run the demo Case in our source code of VSI-SR model, you need construct right enviroment and load demo data at right location. We have provided __Demo Data__ of VSI-SR at [Zenodo](https://doi.org/10.5281/zenodo.14322456).
+You need load __Demo_Data_for_VSI_SR.zip__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.14322456). Then please save files in __Demo_Data_for_VSI_SR.zip__ under _./Code_for_2D_IsoRecon/Demo_Data_for_VSI_SR/_ as below:
 ```text
 ｜-- Meta-rLLS-VSIM
           ｜-- Code_for_2D_IsoRecon
@@ -298,7 +298,7 @@ The model after finetuning will be saved in _/Code_for_2D_IsoRecon/meta_rcan/fin
 The Meta-VSI-SR model is trained based on a modified model-agnostic meta-learning (MAML) algorithm. If you want to train a new Meta-VSI-SR model, please follow these steps:
 
 #### **Data Preparation**
-We provide the meta-training dataset of VSI-SR at [Zenodo](https://zenodo.org/records/14322457). Please load datasets of different biological structures under _./Code_for_2D_IsoRecon/Demo_Data_for_VSI_SR/BioSR_for_LLS-SIM_
+We provide the meta-training dataset of VSI-SR at [Zenodo](https://doi.org/10.5281/zenodo.14322456). Please load datasets of different biological structures under _./Code_for_2D_IsoRecon/Demo_Data_for_VSI_SR/BioSR_for_LLS-SIM_
 The data preparation of meta-training contains following steps: (i) applying deskew to all LLSM images (averaged from the raw LLS-SIM images) and their corresponding GT LLS-SIM images; (ii) removing the camera background, i.e., ~100 sCMOS counts, for LLSM images and applying a 2D Gaussian filter for GT LLS-SIM images to slightly suppress the noise-induced reconstruction artifacts; (iii) normalizing all images to [0,1]. Then, the whole dataset was augmented into tens of thousands of image patch pairs of LLSM patches (64×64×7 voxels) and their corresponding GT LLS-SIM patches (96×96×3 voxels), that is, ~3,000 pairs for each task. Above data preparation can be accomplished by running the MATLAB script _./Code_for_2D_IsoRecon/Data_Prepare.m_. The key parameters that are needed to pay special attention are specified below:
 
 ```python
@@ -342,8 +342,8 @@ Codes of RL-DFN are contained in _./Code_for_3D_IsoRecon_. Its structure is show
 - utils: python source files of utils
 
 ### **Demodata Preparation**
-Before you run the demo Case in our source code of RL-DFN model, you need construct right enviroment and load demo data at right location. We have provided __Demo Data__ of RL-DFN at [Zenodo](https://zenodo.org/records/14322457).
-You need load __Demo_Data_for_RL_DFN.zip__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.14322457). Then please save files in __Demo_Data_for_RL_DFN.zip__ under _./Code_for_3D_IsoRecon/data/_ as below:
+Before you run the demo Case in our source code of RL-DFN model, you need construct right enviroment and load demo data at right location. We have provided __Demo Data__ of RL-DFN at [Zenodo](https://doi.org/10.5281/zenodo.14322456).
+You need load __Demo_Data_for_RL_DFN.zip__ from our [Zenodo Dashboard](https://doi.org/10.5281/zenodo.14322456). Then please save files in __Demo_Data_for_RL_DFN.zip__ under _./Code_for_3D_IsoRecon/data/_ as below:
 ```text
 ｜-- Meta-rLLS-VSIM
           ｜-- Code_for_3D_IsoRecon
