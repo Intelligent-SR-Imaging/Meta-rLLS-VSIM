@@ -5,8 +5,8 @@ In this paper, we present the meta learning-empowered reflective lattice light-s
 <!-- TOC -->
 * ⚙️ [Environment](#Environment)
 * ✅ [Quick Start](#Start)
-* 🔰 [Pipeline](#Pipeline)
-* 💡 [Model](#Model)
+* 🔰 [Pipeline of 3D Isotropic Reconstruction](#Pipeline)
+* 💡 [Model Training and Testing](#Model)
 * ❔ [FAQ](#FAQ)
 * 📊  [Results](#Results)
 <!-- TOC -->
