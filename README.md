@@ -425,7 +425,7 @@ You select specific type of biological specimen by setting the parameter __*Stru
 
 
 <br><br>
-<h1 id="FQA">❔ FAQ</h1>
+<h1 id="FAQ">❔ FAQ</h1>
 
 ### Q1: Why does the program report an ERROR where the file cannot be found like *"FileNotFoundError: [Errno 2] No such file or directory:"xxxxx"*
 
